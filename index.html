@@ -1,0 +1,2510 @@
+<!DOCTYPE html>
+<html lang="it" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sartoria Milano — Haute Sartorial Craftsmanship & Quiet Luxury</title>
+  <meta name="description" content="Sartoria Milano. High-end luxury Italian tailoring, bespoke garments, and quiet luxury knitwear handcrafted in Milan." />
+  
+  <!-- Typography: Cormorant Garamond & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================================
+       DESIGN TOKENS & SYSTEM
+       Palette: Warm Alabaster, Espresso Charcoal, Terracotta Siena & Olive
+       ========================================================================== */
+    :root {
+      --bg-canvas: #F8F6F2;
+      --bg-surface: #FFFFFF;
+      --bg-subtle: #F2EFEB;
+      --bg-accent: #EAE5DE;
+      
+      --text-primary: #1A1817;
+      --text-muted: #6B6661;
+      --text-subtle: #99938B;
+      
+      --accent-sienna: #8C5A3C;
+      --accent-olive: #4A5340;
+      --accent-bronze: #9A6B43;
+      
+      --hairline: rgba(26, 24, 23, 0.1);
+      --hairline-strong: rgba(26, 24, 23, 0.22);
+      
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      
+      --spacing-xs: 4px;
+      --spacing-sm: 8px;
+      --spacing-md: 16px;
+      --spacing-lg: 24px;
+      --spacing-xl: 40px;
+      --spacing-2xl: 72px;
+      --spacing-3xl: 110px;
+
+      --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      --shadow-luxury: 0 16px 40px -12px rgba(26, 24, 23, 0.08);
+      --shadow-drawer: -10px 0 35px rgba(26, 24, 23, 0.12);
+    }
+
+    /* RTL Support */
+    [dir="rtl"] {
+      text-align: right;
+    }
+
+    /* Reset & Base Setup */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    button, input, select {
+      font-family: inherit;
+      color: inherit;
+      outline: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+
+    /* ==========================================================================
+       UTILITIES & TYPOGRAPHY
+       ========================================================================== */
+    .container {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .container-wide {
+      max-width: 1520px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .editorial-heading {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+
+    .editorial-label {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-sienna);
+      font-weight: 500;
+    }
+
+    .badge-fabric {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--text-muted);
+      background-color: var(--bg-subtle);
+      padding: 3px 10px;
+      border: 1px solid var(--hairline);
+      border-radius: 2px;
+      letter-spacing: 0.03em;
+    }
+
+    .badge-fabric::before {
+      content: "";
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: var(--accent-sienna);
+    }
+
+    /* Buttons */
+    .btn-sartoria {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 28px;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+      border: 1px solid var(--text-primary);
+      background-color: var(--text-primary);
+      color: var(--bg-canvas);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-sartoria:hover {
+      background-color: transparent;
+      color: var(--text-primary);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 26px;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+      border: 1px solid var(--hairline-strong);
+      background-color: transparent;
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--text-primary);
+      background-color: var(--bg-surface);
+    }
+
+    .btn-text-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      background: none;
+      border: none;
+      border-bottom: 1px solid var(--text-primary);
+      padding-bottom: 2px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-text-action:hover {
+      color: var(--accent-sienna);
+      border-bottom-color: var(--accent-sienna);
+    }
+
+    /* ==========================================================================
+       HEADER & TOP ANNOUNCEMENT
+       ========================================================================== */
+    .announcement-bar {
+      background-color: #161514;
+      color: #E6E1DA;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      padding: 8px 16px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .announcement-bar span.dot {
+      width: 4px;
+      height: 4px;
+      background-color: var(--accent-sienna);
+      border-radius: 50%;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: rgba(248, 246, 242, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--hairline);
+      transition: var(--transition-smooth);
+    }
+
+    .nav-inner {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      height: 78px;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      color: var(--text-primary);
+      position: relative;
+    }
+
+    .nav-menu a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: var(--accent-sienna);
+      transition: width 0.3s ease;
+    }
+
+    .nav-menu a:hover::after {
+      width: 100%;
+    }
+
+    .brand-mark {
+      text-align: center;
+    }
+
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 27px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .brand-subtitle {
+      font-size: 9px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--accent-sienna);
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 22px;
+    }
+
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      padding: 4px 8px;
+      border: 1px solid var(--hairline);
+      border-radius: 2px;
+      cursor: pointer;
+      background: transparent;
+    }
+
+    .action-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      padding: 6px;
+      transition: var(--transition-smooth);
+      position: relative;
+    }
+
+    .action-btn:hover {
+      color: var(--accent-sienna);
+    }
+
+    .cart-count {
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      background-color: var(--accent-sienna);
+      color: #fff;
+      font-size: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      position: absolute;
+      top: -2px;
+      right: -8px;
+    }
+
+    /* ==========================================================================
+       HERO SECTION (Editorial & Full Bleed Ambience)
+       ========================================================================== */
+    .hero-editorial {
+      position: relative;
+      min-height: calc(100vh - 120px);
+      display: flex;
+      align-items: center;
+      padding: 60px 0;
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-size: clamp(40px, 4.8vw, 68px);
+      line-height: 1.08;
+      margin-bottom: 28px;
+      color: var(--text-primary);
+    }
+
+    .hero-lead {
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--text-muted);
+      max-width: 480px;
+      margin-bottom: 38px;
+      font-weight: 300;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .hero-visual-frame {
+      position: relative;
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      height: 720px;
+      overflow: hidden;
+      border: 1px solid var(--hairline);
+      background-color: var(--bg-subtle);
+    }
+
+    .hero-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      filter: contrast(1.03);
+      transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hero-image-wrapper:hover img {
+      transform: scale(1.03);
+    }
+
+    .hero-badge-overlay {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      background: rgba(248, 246, 242, 0.92);
+      backdrop-filter: blur(8px);
+      padding: 16px 20px;
+      border: 1px solid var(--hairline);
+      max-width: 270px;
+    }
+
+    .hero-badge-overlay h4 {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .hero-badge-overlay p {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* ==========================================================================
+       BRAND STATEMENTS & CRAFT VALUES
+       ========================================================================== */
+    .section-manifesto {
+      padding: 72px 0;
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .manifesto-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 56px;
+      align-items: baseline;
+    }
+
+    .manifesto-quote {
+      font-family: var(--font-serif);
+      font-size: clamp(24px, 2.4vw, 36px);
+      line-height: 1.35;
+      font-style: italic;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+    }
+
+    .manifesto-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 40px;
+      border-top: 1px solid var(--hairline);
+      padding-top: 32px;
+    }
+
+    .pillar-item h4 {
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+
+    .pillar-item p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* ==========================================================================
+       ASYMMETRIC LOOKBOOK
+       ========================================================================== */
+    .section-lookbook {
+      padding: 96px 0;
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 56px;
+    }
+
+    .lookbook-masonry {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .look-card {
+      position: relative;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--hairline);
+      overflow: hidden;
+    }
+
+    .look-media {
+      position: relative;
+      height: 640px;
+      overflow: hidden;
+      background-color: var(--bg-subtle);
+    }
+
+    .look-media-tall {
+      height: 740px;
+    }
+
+    .look-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .look-card:hover .look-media img {
+      transform: scale(1.02);
+    }
+
+    /* Interactive Lookbook Tag Hotspots */
+    .hotspot {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background-color: rgba(248, 246, 242, 0.85);
+      border: 1px solid var(--text-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+      transition: var(--transition-smooth);
+      z-index: 10;
+    }
+
+    .hotspot::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--accent-sienna);
+    }
+
+    .hotspot:hover {
+      transform: scale(1.15);
+      background-color: #FFFFFF;
+    }
+
+    .hotspot-popover {
+      position: absolute;
+      bottom: calc(100% + 12px);
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      width: 220px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--hairline);
+      padding: 12px 14px;
+      opacity: 0;
+      pointer-events: none;
+      box-shadow: var(--shadow-luxury);
+      transition: var(--transition-smooth);
+      z-index: 20;
+    }
+
+    .hotspot:hover .hotspot-popover,
+    .hotspot:focus .hotspot-popover {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .hotspot-popover h5 {
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .hotspot-popover p {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .hotspot-popover .popover-price {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-primary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .look-meta {
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-top: 1px solid var(--hairline);
+    }
+
+    .look-meta h3 {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 400;
+      margin-bottom: 4px;
+    }
+
+    .look-meta p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       CATALOG SECTION & FILTER BAR
+       ========================================================================== */
+    .section-catalog {
+      padding: 96px 0;
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .catalog-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--hairline);
+      padding-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .filter-pills {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: none;
+      border: 1px solid transparent;
+      padding: 8px 16px;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .filter-btn:hover {
+      color: var(--text-primary);
+    }
+
+    .filter-btn.active {
+      color: var(--text-primary);
+      border-color: var(--hairline-strong);
+      background-color: var(--bg-surface);
+      font-weight: 500;
+    }
+
+    .catalog-actions-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+    }
+
+    .product-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--hairline);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: var(--transition-smooth);
+    }
+
+    .product-card:hover {
+      box-shadow: var(--shadow-luxury);
+      border-color: var(--hairline-strong);
+    }
+
+    .product-thumb-container {
+      position: relative;
+      height: 380px;
+      overflow: hidden;
+      background-color: var(--bg-subtle);
+    }
+
+    .product-thumb-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .product-card:hover .product-thumb-container img {
+      transform: scale(1.04);
+    }
+
+    /* Fabric texture preview toggle */
+    .texture-pill {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(248, 246, 242, 0.92);
+      backdrop-filter: blur(6px);
+      border: 1px solid var(--hairline);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 8px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      z-index: 2;
+    }
+
+    .texture-pill:hover {
+      background-color: #FFFFFF;
+      color: var(--accent-sienna);
+    }
+
+    .product-quick-btn {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(26, 24, 23, 0.9);
+      color: #FFFFFF;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 12px;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      transform: translateY(100%);
+      opacity: 0;
+      transition: var(--transition-smooth);
+    }
+
+    .product-card:hover .product-quick-btn {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .product-info {
+      padding: 18px 20px 22px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-mill {
+      font-size: 11px;
+      color: var(--accent-sienna);
+      font-weight: 500;
+      margin-bottom: 4px;
+      letter-spacing: 0.03em;
+    }
+
+    .product-name {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.25;
+      margin-bottom: 6px;
+      color: var(--text-primary);
+    }
+
+    .product-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin-bottom: 14px;
+      flex-grow: 1;
+    }
+
+    .product-bottom-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 12px;
+      border-top: 1px solid var(--hairline);
+    }
+
+    .product-price {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .btn-card-add {
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: transparent;
+      border: none;
+      color: var(--accent-sienna);
+      cursor: pointer;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .btn-card-add:hover {
+      text-decoration: underline;
+    }
+
+    /* ==========================================================================
+       FABRIC DOSSIER & CRAFT EXPLORER SECTION
+       ========================================================================== */
+    .section-fabric-story {
+      padding: 96px 0;
+      background-color: #F3EFEA;
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .fabric-dossier-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .swatch-tabs {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .swatch-item {
+      padding: 18px 24px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--hairline);
+      border-left: 4px solid transparent;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .swatch-item.active {
+      border-left-color: var(--accent-sienna);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    }
+
+    .swatch-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+
+    .swatch-header h4 {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .swatch-weight {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .swatch-item p {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .fabric-macro-view {
+      position: relative;
+      height: 520px;
+      background-color: var(--bg-subtle);
+      border: 1px solid var(--hairline);
+      overflow: hidden;
+    }
+
+    .fabric-macro-view img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition-smooth);
+    }
+
+    .fabric-card-specs {
+      position: absolute;
+      bottom: 24px;
+      right: 24px;
+      background: rgba(26, 24, 23, 0.88);
+      color: #FFFFFF;
+      padding: 16px 20px;
+      backdrop-filter: blur(8px);
+      max-width: 240px;
+    }
+
+    .fabric-card-specs div {
+      font-size: 11px;
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .fabric-card-specs div span:last-child {
+      font-weight: 500;
+      color: #E2DDD5;
+    }
+
+    /* ==========================================================================
+       SLIDE-OVER SHOPPING BAG & DRAWERS
+       ========================================================================== */
+    .drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(26, 24, 23, 0.45);
+      backdrop-filter: blur(4px);
+      z-index: 500;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+
+    .drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .slide-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 460px;
+      height: 100%;
+      background-color: var(--bg-canvas);
+      z-index: 600;
+      box-shadow: var(--shadow-drawer);
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [dir="rtl"] .slide-drawer {
+      right: auto;
+      left: 0;
+      transform: translateX(-100%);
+    }
+
+    .slide-drawer.open {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      padding: 24px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .drawer-header h3 {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    .drawer-close {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 20px;
+      color: var(--text-primary);
+      padding: 4px;
+    }
+
+    .drawer-body {
+      padding: 28px;
+      flex-grow: 1;
+      overflow-y: auto;
+    }
+
+    /* Bag Items List */
+    .cart-items-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .cart-item-row {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 16px;
+      align-items: center;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .cart-item-img {
+      width: 80px;
+      height: 100px;
+      object-fit: cover;
+      background-color: var(--bg-subtle);
+    }
+
+    .cart-item-info h4 {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .cart-item-info .item-size {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .qty-controls {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--hairline-strong);
+      background-color: var(--bg-surface);
+    }
+
+    .qty-btn {
+      background: none;
+      border: none;
+      width: 26px;
+      height: 26px;
+      cursor: pointer;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qty-val {
+      width: 24px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .cart-item-price {
+      text-align: right;
+    }
+
+    .cart-item-price .price-num {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .remove-btn {
+      background: none;
+      border: none;
+      color: var(--text-subtle);
+      font-size: 11px;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .remove-btn:hover {
+      color: var(--accent-sienna);
+    }
+
+    .shipping-progress-box {
+      background-color: var(--bg-subtle);
+      border: 1px solid var(--hairline);
+      padding: 14px 18px;
+      margin-bottom: 24px;
+    }
+
+    .progress-bar-bg {
+      height: 4px;
+      width: 100%;
+      background-color: rgba(26, 24, 23, 0.1);
+      margin-top: 8px;
+      position: relative;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background-color: var(--accent-sienna);
+      width: 80%;
+      transition: width 0.4s ease;
+    }
+
+    .drawer-footer {
+      padding: 24px 28px;
+      border-top: 1px solid var(--hairline);
+      background-color: var(--bg-surface);
+    }
+
+    .subtotal-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+    }
+
+    .subtotal-row span:first-child {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .subtotal-row span:last-child {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .tax-note {
+      font-size: 11px;
+      color: var(--text-subtle);
+      margin-bottom: 18px;
+    }
+
+    /* ==========================================================================
+       SIZE GUIDE & MEASUREMENT DRAWER
+       ========================================================================== */
+    .size-guide-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.96);
+      width: 90%;
+      max-width: 780px;
+      max-height: 85vh;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--hairline);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.18);
+      z-index: 700;
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition-smooth);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .size-guide-modal.open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .size-table-wrapper {
+      padding: 24px;
+      overflow-x: auto;
+    }
+
+    .size-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 13px;
+    }
+
+    .size-table th {
+      padding: 12px 14px;
+      border-bottom: 2px solid var(--hairline-strong);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .size-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--hairline);
+      color: var(--text-primary);
+    }
+
+    .size-table tr:hover td {
+      background-color: var(--bg-canvas);
+    }
+
+    .size-guide-notes {
+      padding: 16px 24px 24px;
+      background-color: var(--bg-canvas);
+      border-top: 1px solid var(--hairline);
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       PRODUCT QUICK VIEW MODAL
+       ========================================================================== */
+    .quickview-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.95);
+      width: 90%;
+      max-width: 920px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--hairline);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.2);
+      z-index: 750;
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition-smooth);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+      max-height: 90vh;
+    }
+
+    .quickview-modal.open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .qv-image-pane {
+      position: relative;
+      background-color: var(--bg-subtle);
+      height: 100%;
+      min-height: 480px;
+    }
+
+    .qv-image-pane img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .qv-details-pane {
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .qv-sizes {
+      display: flex;
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .size-btn {
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--hairline-strong);
+      background: transparent;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .size-btn:hover {
+      border-color: var(--text-primary);
+    }
+
+    .size-btn.active {
+      background-color: var(--text-primary);
+      color: #fff;
+      border-color: var(--text-primary);
+    }
+
+    /* Toast Notification */
+    .toast-notice {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      background-color: #1A1817;
+      color: #F8F6F2;
+      padding: 14px 22px;
+      font-size: 13px;
+      border-left: 3px solid var(--accent-sienna);
+      box-shadow: var(--shadow-luxury);
+      z-index: 999;
+      transform: translateY(120%);
+      opacity: 0;
+      transition: var(--transition-smooth);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .toast-notice.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* ==========================================================================
+       FOOTER (Milanese Atelier Footprint)
+       ========================================================================== */
+    .site-footer {
+      background-color: #141312;
+      color: #D3CDC5;
+      padding: 80px 0 36px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 48px;
+      margin-bottom: 64px;
+    }
+
+    .footer-brand h3 {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand p {
+      font-size: 13px;
+      color: #9E988F;
+      line-height: 1.6;
+      max-width: 320px;
+    }
+
+    .footer-col h5 {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-sienna);
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-col a {
+      color: #B2ACA2;
+      font-size: 13px;
+    }
+
+    .footer-col a:hover {
+      color: #FFFFFF;
+    }
+
+    .newsletter-form {
+      display: flex;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      padding-bottom: 6px;
+      margin-top: 12px;
+    }
+
+    .newsletter-form input {
+      background: transparent;
+      border: none;
+      color: #FFFFFF;
+      font-size: 13px;
+      flex-grow: 1;
+    }
+
+    .newsletter-form input::placeholder {
+      color: #7A746B;
+    }
+
+    .newsletter-form button {
+      background: none;
+      border: none;
+      color: #FFFFFF;
+      cursor: pointer;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: #7A746B;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE ADAPTATIONS
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .hero-image-wrapper {
+        height: 520px;
+      }
+      .lookbook-masonry {
+        grid-template-columns: 1fr;
+      }
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .fabric-dossier-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-inner {
+        grid-template-columns: auto 1fr auto;
+      }
+      .nav-menu {
+        display: none;
+      }
+      .manifesto-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .manifesto-pillars {
+        grid-template-columns: 1fr;
+      }
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+      .quickview-modal {
+        grid-template-columns: 1fr;
+        overflow-y: auto;
+      }
+      .qv-image-pane {
+        height: 320px;
+        min-height: auto;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <aside class="announcement-bar" role="region" aria-label="Notizie dell'Atelier">
+    <span data-i18n="announcement-text">Spedizione celere omaggio per acquisti oltre €500</span>
+    <span class="dot"></span>
+    <span data-i18n="announcement-sub">Bespoke & Sartoria Su Misura • Milano & Roma</span>
+  </aside>
+
+  <!-- Sticky Luxury Header -->
+  <header class="site-header" role="banner">
+    <div class="container-wide nav-inner">
+      <nav class="nav-menu" aria-label="Navigazione Principale">
+        <a href="#collezione" data-i18n="nav-collection">Collezione</a>
+        <a href="#lookbook" data-i18n="nav-lookbook">Lookbook</a>
+        <a href="#tessuti" data-i18n="nav-fabrics">Tessuti & Manifattura</a>
+        <a href="javascript:void(0)" onclick="openSizeGuide()" data-i18n="nav-sizing">Guida alle Taglie</a>
+      </nav>
+
+      <div class="brand-mark">
+        <a href="#">
+          <h1 class="brand-title">Sartoria Milano</h1>
+          <div class="brand-subtitle">Via Monte Napoleone 14</div>
+        </a>
+      </div>
+
+      <div class="nav-actions">
+        <!-- Language Switcher -->
+        <button class="lang-switcher" onclick="toggleLanguage()" aria-label="Cambia Lingua">
+          <span id="current-lang">IT</span>
+          <span style="opacity: 0.5;">/</span>
+          <span style="opacity: 0.5;">EN</span>
+        </button>
+
+        <!-- Bag Trigger -->
+        <button class="action-btn" onclick="openCart()" aria-label="Apri Carrello">
+          <span data-i18n="nav-cart">Borsa</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="cart-count" id="header-cart-count">2</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========================================================================
+         HERO SECTION: Milanese Minimalism & Quiet Luxury
+         ======================================================================== -->
+    <section class="hero-editorial" aria-label="Vetrina Editoriale">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-meta">
+            <span class="editorial-label" data-i18n="hero-season">Collezione Autunno / Inverno</span>
+            <span class="badge-fabric" data-i18n="hero-fabric-badge">Pura Lana Vergine Super 130s</span>
+          </div>
+
+          <h2 class="editorial-heading hero-title" data-i18n="hero-heading">
+            L'arte sartoriale milanese. Rigore, morbidezza, silenzio.
+          </h2>
+
+          <p class="hero-lead" data-i18n="hero-lead">
+            Capi costruiti a mano nell'Atelier di Milano con lane pregiate di Biella e cashmere Cariaggi. Linee non ostentate pensate per durare decenni.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#collezione" class="btn-sartoria" data-i18n="hero-cta-explore">Esplora la Collezione</a>
+            <button onclick="openSizeGuide()" class="btn-outline" data-i18n="hero-cta-sizes">Tabella Taglie & Misure</button>
+          </div>
+        </div>
+
+        <div class="hero-visual-frame">
+          <div class="hero-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1200&q=85" alt="Modello con cappotto sartoriale in lana pettinata sartoria milano" loading="eager" />
+          </div>
+          <div class="hero-badge-overlay">
+            <h4 data-i18n="hero-overlay-title">Il Cappotto Monopetto Biella</h4>
+            <p data-i18n="hero-overlay-desc">Taglio decostruito con spalla camicia e bottoni in vero corno naturale d'acqua.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         MANIFESTO / PHILOSOPHY
+         ======================================================================== -->
+    <section class="section-manifesto" aria-label="Filosofia della Manifattura">
+      <div class="container manifesto-grid">
+        <div>
+          <span class="editorial-label" data-i18n="manifesto-label">Principio Sartoriale</span>
+          <h3 class="editorial-heading" style="font-size: 26px; margin-top: 8px;" data-i18n="manifesto-title">Lusso Senza Rumore</h3>
+        </div>
+        <div>
+          <blockquote class="manifesto-quote" data-i18n="manifesto-quote">
+            “La vera eleganza milanese si riconosce dalla naturalezza con cui cade il tessuto sulle spalle, mai da un logo visibile.”
+          </blockquote>
+          <div class="manifesto-pillars">
+            <div class="pillar-item">
+              <h4 data-i18n="pillar-1-title">01. Manifattura Locale</h4>
+              <p data-i18n="pillar-1-desc">Ogni giacca richiede oltre 38 ore di lavorazione manuale tra imbastitura e asole rifinite a filo di seta.</p>
+            </div>
+            <div class="pillar-item">
+              <h4 data-i18n="pillar-2-title">02. Selezione Biellese</h4>
+              <p data-i18n="pillar-2-desc">Lane pettinate e flanelle tessute negli storici lanifici della Valle Cervo, con finissaggi all'acqua di sorgente.</p>
+            </div>
+            <div class="pillar-item">
+              <h4 data-i18n="pillar-3-title">03. Vestibilità Senza Tempo</h4>
+              <p data-i18n="pillar-3-desc">Silhouette bilanciata tra il rigore formale ambrosiano e la morbidezza decostruita partenopea.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         ASYMMETRIC EDITORIAL LOOKBOOK
+         ======================================================================== -->
+    <section class="section-lookbook" id="lookbook" aria-label="Lookbook Autunno">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <span class="editorial-label" data-i18n="lookbook-label">Guida di Stile</span>
+            <h2 class="editorial-heading" style="font-size: 38px; margin-top: 6px;" data-i18n="lookbook-title">Lookbook: Autunno a Brera</h2>
+          </div>
+          <button class="btn-text-action" onclick="filterCatalog('all')" data-i18n="lookbook-viewall">Vedi tutti i capi in catalogo &rarr;</button>
+        </div>
+
+        <div class="lookbook-masonry">
+          <!-- Look 1: Primary Large Editorial with Interactive Hotspots -->
+          <article class="look-card">
+            <div class="look-media">
+              <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=85" alt="Look sartoriale formale Sartoria Milano" loading="lazy" />
+
+              <!-- Hotspot 1: Blazer -->
+              <div class="hotspot" style="top: 38%; left: 45%;" tabindex="0" role="button" aria-label="Giacca in Twill di Lana">
+                <div class="hotspot-popover">
+                  <span class="badge-fabric">Biella Super 130s</span>
+                  <h5>Giacca Doppiopetto 'Brera'</h5>
+                  <p>Lana ritorta a 2 capi, costruzione intelata leggera.</p>
+                  <div class="popover-price">
+                    <span>€ 1.250</span>
+                    <button class="btn-card-add" onclick="addToCartDirect('Giacca Doppiopetto Brera', 1250, 'IT 48', 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=300&q=80')">+ Aggiungi</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Hotspot 2: Silk Pocket Square -->
+              <div class="hotspot" style="top: 48%; left: 36%;" tabindex="0" role="button" aria-label="Pochette in seta comasca">
+                <div class="hotspot-popover">
+                  <span class="badge-fabric">Como Twill</span>
+                  <h5>Pochette Orlata a Mano</h5>
+                  <p>Seta comasca stampata a quadro geometrico.</p>
+                  <div class="popover-price">
+                    <span>€ 95</span>
+                    <button class="btn-card-add" onclick="addToCartDirect('Pochette Orlata a Mano', 95, 'Unica', 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=300&q=80')">+ Aggiungi</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="look-meta">
+              <div>
+                <span class="editorial-label">Look 01</span>
+                <h3>Il Rigore del Doppio Petto</h3>
+                <p>Abbinamento classico per la giornata negli atelier o nelle stanze di rappresentanza.</p>
+              </div>
+              <button class="btn-outline" onclick="openQuickView(1)" style="padding: 8px 16px; font-size: 11px;">Esamina Capi</button>
+            </div>
+          </article>
+
+          <!-- Look 2: Secondary Editorial Look -->
+          <article class="look-card">
+            <div class="look-media look-media-tall">
+              <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85" alt="Completo in maglieria di cashmere e pantalone rilassato" loading="lazy" />
+
+              <!-- Hotspot: Cashmere Knitwear -->
+              <div class="hotspot" style="top: 42%; left: 52%;" tabindex="0" role="button" aria-label="Dolcevita in Cashmere">
+                <div class="hotspot-popover">
+                  <span class="badge-fabric">Cariaggi 2-Ply</span>
+                  <h5>Dolcevita Cashmere 'Navigli'</h5>
+                  <p>Morbidezza avvolgente a costa inglese calibrata.</p>
+                  <div class="popover-price">
+                    <span>€ 680</span>
+                    <button class="btn-card-add" onclick="addToCartDirect('Dolcevita Cashmere Navigli', 680, 'IT 50', 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=300&q=80')">+ Aggiungi</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="look-meta">
+              <div>
+                <span class="editorial-label">Look 02</span>
+                <h3>Morbidezza Subalpina</h3>
+                <p>Maglieria a collo alto in puro cashmere e pantalone a pince sartoriali.</p>
+              </div>
+              <button class="btn-outline" onclick="openQuickView(2)" style="padding: 8px 16px; font-size: 11px;">Esamina Capi</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         FILTERABLE CATALOG SECTION
+         ======================================================================== -->
+    <section class="section-catalog" id="collezione" aria-label="Catalogo Prodotti">
+      <div class="container">
+        <div class="catalog-controls">
+          <div>
+            <span class="editorial-label" data-i18n="catalog-label">Capi Pronti & Sartoria</span>
+            <h2 class="editorial-heading" style="font-size: 34px; margin-top: 4px;" data-i18n="catalog-title">Collezione Ready-To-Wear</h2>
+          </div>
+
+          <div class="filter-pills" role="tablist">
+            <button class="filter-btn active" onclick="filterCategory('all', this)" role="tab" data-i18n="filter-all">Tutti i Capi</button>
+            <button class="filter-btn" onclick="filterCategory('blazers', this)" role="tab" data-i18n="filter-blazers">Giacche & Blazers</button>
+            <button class="filter-btn" onclick="filterCategory('knitwear', this)" role="tab" data-i18n="filter-knitwear">Maglieria</button>
+            <button class="filter-btn" onclick="filterCategory('trousers', this)" role="tab" data-i18n="filter-trousers">Pantaloni</button>
+            <button class="filter-btn" onclick="filterCategory('accessories', this)" role="tab" data-i18n="filter-accessories">Accessori & Pelletteria</button>
+          </div>
+        </div>
+
+        <div class="product-grid" id="product-grid">
+          <!-- Item 1: Blazer -->
+          <article class="product-card" data-category="blazers">
+            <div class="product-thumb-container">
+              <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=700&q=80" alt="Giacca Principe di Galles sfoderata" loading="lazy" />
+              <button class="texture-pill" onclick="openTextureView('wool-houndstooth')">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Trama Tessuto
+              </button>
+              <button class="product-quick-btn" onclick="openQuickView(1)" data-i18n="card-quickview">Dettagli & Misure Rapide</button>
+            </div>
+            <div class="product-info">
+              <div class="product-mill">Lanificio F.lli Cerruti • Biella</div>
+              <h3 class="product-name">Blazer Decostruito Galles</h3>
+              <p class="product-desc">Costruzione napoletana senza spallina, spacco laterale profondo e tasche applicate a toppa.</p>
+              <div class="product-bottom-bar">
+                <span class="product-price">€ 1.180</span>
+                <button class="btn-card-add" onclick="openQuickView(1)" data-i18n="card-select-size">Scegli Taglia &rarr;</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 2: Cashmere Knitwear -->
+          <article class="product-card" data-category="knitwear">
+            <div class="product-thumb-container">
+              <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=700&q=80" alt="Maglione girocollo cashmere grezzo" loading="lazy" />
+              <button class="texture-pill" onclick="openTextureView('cashmere-fine')">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Trama Tessuto
+              </button>
+              <button class="product-quick-btn" onclick="openQuickView(2)" data-i18n="card-quickview">Dettagli & Misure Rapide</button>
+            </div>
+            <div class="product-info">
+              <div class="product-mill">Filatura Cariaggi • Marche</div>
+              <h3 class="product-name">Girocollo Cashmere Puro</h3>
+              <p class="product-desc">Maglia a 2 fili, titolo finissimo 2/28. Trattamento idrofilo naturale per una mano vellutata.</p>
+              <div class="product-bottom-bar">
+                <span class="product-price">€ 620</span>
+                <button class="btn-card-add" onclick="openQuickView(2)" data-i18n="card-select-size">Scegli Taglia &rarr;</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 3: Trousers -->
+          <article class="product-card" data-category="trousers">
+            <div class="product-thumb-container">
+              <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=700&q=80" alt="Pantalone sartoriale a doppia pince" loading="lazy" />
+              <button class="texture-pill" onclick="openTextureView('wool-flannel')">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Trama Tessuto
+              </button>
+              <button class="product-quick-btn" onclick="openQuickView(3)" data-i18n="card-quickview">Dettagli & Misure Rapide</button>
+            </div>
+            <div class="product-info">
+              <div class="product-mill">Vitale Barberis Canonico • Biella</div>
+              <h3 class="product-name">Pantaloni Doppia Pince</h3>
+              <p class="product-desc">Cinturino sartoriale allungato con fibbiette laterali in metallo brunito. Fondo con risvolto 4.5 cm.</p>
+              <div class="product-bottom-bar">
+                <span class="product-price">€ 440</span>
+                <button class="btn-card-add" onclick="openQuickView(3)" data-i18n="card-select-size">Scegli Taglia &rarr;</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 4: Leather & Accessory -->
+          <article class="product-card" data-category="accessories">
+            <div class="product-thumb-container">
+              <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=700&q=80" alt="Borsa portadocumenti in pelle toscana tamponata a mano" loading="lazy" />
+              <button class="texture-pill" onclick="openTextureView('leather-grain')">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                Dettaglio Grana
+              </button>
+              <button class="product-quick-btn" onclick="openQuickView(4)" data-i18n="card-quickview">Dettagli & Misure Rapide</button>
+            </div>
+            <div class="product-info">
+              <div class="product-mill">Conceria Santa Croce • Toscana</div>
+              <h3 class="product-name">Tote Bag 'Monte Napoleone'</h3>
+              <p class="product-desc">Pelle pieno fiore conciata al vegetale. Coste levigate e tinte a mano con cera naturale d'api.</p>
+              <div class="product-bottom-bar">
+                <span class="product-price">€ 890</span>
+                <button class="btn-card-add" onclick="openQuickView(4)" data-i18n="card-select-size">Aggiungi &rarr;</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         FABRIC DOSSIER & MILL TRACEABILITY
+         ======================================================================== -->
+    <section class="section-fabric-story" id="tessuti" aria-label="Archivio dei Tessuti">
+      <div class="container">
+        <div class="fabric-dossier-grid">
+          <div>
+            <span class="editorial-label" data-i18n="fabric-story-label">Tracciabilità e Origine</span>
+            <h2 class="editorial-heading" style="font-size: 38px; margin: 8px 0 16px;" data-i18n="fabric-story-title">L'anima del capo è nella fibra.</h2>
+            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.6; max-width: 500px;" data-i18n="fabric-story-desc">
+              Non acquistiamo tessuti a metraggio commerciale. Lavoriamo a stretto contatto con gli storici lanifici di Biella e le seterie di Como per sviluppare armature esclusive, pesi d'aria e cadute fluide adatte a ogni stagione.
+            </p>
+
+            <div class="swatch-tabs" role="tablist">
+              <div class="swatch-item active" onclick="switchSwatch('biella', this)">
+                <div class="swatch-header">
+                  <h4>Lana Vergine Pettinata Super 130s</h4>
+                  <span class="swatch-weight">260 g/m • Biella (Piemonte)</span>
+                </div>
+                <p>Fibra micronica 17.2 µm con torsione elastica naturale, traspirante e antipiega per viaggi e giornate attive.</p>
+              </div>
+
+              <div class="swatch-item" onclick="switchSwatch('cashmere', this)">
+                <div class="swatch-header">
+                  <h4>Cashmere Sublime 2-Ply</h4>
+                  <span class="swatch-weight">310 g/m • Filatura Cariaggi</span>
+                </div>
+                <p>Pregiatissimo duvet di sottovello raccolto a mano per pettinatura dolce, con tintura in fiocco ecosostenibile.</p>
+              </div>
+
+              <div class="swatch-item" onclick="switchSwatch('silk', this)">
+                <div class="swatch-header">
+                  <h4>Twill di Pura Seta Pesante</h4>
+                  <span class="swatch-weight">180 g/m • Lago di Como</span>
+                </div>
+                <p>Tessuta su telai meccanici tradizionali per un riflesso opaco profondo e un drappeggio rigoroso.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="fabric-macro-view">
+            <img id="fabric-display-img" src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=85" alt="Macro della trama del tessuto sartoriale" />
+            <div class="fabric-card-specs">
+              <div><span>Armatura:</span> <span id="spec-weave">Twill 2/2</span></div>
+              <div><span>Finissaggio:</span> <span id="spec-finish">All'Acqua Dolce</span></div>
+              <div><span>Drappeggio:</span> <span id="spec-drape">Fluido / 9.2/10</span></div>
+              <div><span>Stagione:</span> <span id="spec-season">4 Stagioni / Trans-Seasonal</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       SLIDE-OVER SHOPPING BAG DRAWER
+       ======================================================================== -->
+  <div class="drawer-overlay" id="drawer-overlay" onclick="closeAllDrawers()"></div>
+
+  <aside class="slide-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-label="Borsa della Spesa">
+    <div class="drawer-header">
+      <h3 data-i18n="cart-title">Borsa Sartoriale</h3>
+      <button class="drawer-close" onclick="closeCart()" aria-label="Chiudi carrello">&times;</button>
+    </div>
+
+    <div class="drawer-body">
+      <!-- Complimentary Shipping Gauge -->
+      <div class="shipping-progress-box">
+        <div style="display: flex; justify-content: space-between; font-size: 11px;">
+          <span id="shipping-status-text">Spedizione espresso assicurata inclusa</span>
+          <span style="font-weight: 600; color: var(--accent-sienna);">100%</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="shipping-bar-fill" style="width: 100%;"></div>
+        </div>
+      </div>
+
+      <!-- Item Rows -->
+      <div class="cart-items-list" id="cart-items-container">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+
+    <div class="drawer-footer">
+      <div class="subtotal-row">
+        <span data-i18n="cart-subtotal">Totale Provvisorio</span>
+        <span id="cart-subtotal-val">€ 1.800</span>
+      </div>
+      <p class="tax-note" data-i18n="cart-tax-note">IVA 22% inclusa • Confezione rigida sartoriale con custodia in lino in omaggio</p>
+      
+      <button class="btn-sartoria" style="width: 100%;" onclick="proceedCheckout()" data-i18n="cart-checkout-btn">
+        Procedi all'Ordine Sicuro &rarr;
+      </button>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       SIZE GUIDE DRAWER / MODAL (Italian vs International Conversion)
+       ======================================================================== -->
+  <div class="size-guide-modal" id="size-modal" role="dialog" aria-modal="true" aria-label="Guida alle Taglie">
+    <div class="drawer-header">
+      <div>
+        <h3 data-i18n="modal-size-title">Guida alle Taglie & Conversione Internazionale</h3>
+        <span class="editorial-label" style="font-size: 10px;">Standard Sartoriale Italiano (Misure a Corpo in cm)</span>
+      </div>
+      <button class="drawer-close" onclick="closeSizeGuide()">&times;</button>
+    </div>
+
+    <div class="size-table-wrapper">
+      <table class="size-table">
+        <thead>
+          <tr>
+            <th>Taglia Italia (IT)</th>
+            <th>Regno Unito / USA (UK/US)</th>
+            <th>Unione Europea (EU)</th>
+            <th>Giappone (JP)</th>
+            <th>Torace (cm)</th>
+            <th>Vita (cm)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>IT 46</strong></td>
+            <td>36 Regular</td>
+            <td>S / 46</td>
+            <td>1</td>
+            <td>92 – 95</td>
+            <td>80 – 83</td>
+          </tr>
+          <tr>
+            <td><strong>IT 48</strong></td>
+            <td>38 Regular</td>
+            <td>M / 48</td>
+            <td>2</td>
+            <td>96 – 99</td>
+            <td>84 – 87</td>
+          </tr>
+          <tr>
+            <td><strong>IT 50</strong></td>
+            <td>40 Regular</td>
+            <td>L / 50</td>
+            <td>3</td>
+            <td>100 – 103</td>
+            <td>88 – 91</td>
+          </tr>
+          <tr>
+            <td><strong>IT 52</strong></td>
+            <td>42 Regular</td>
+            <td>XL / 52</td>
+            <td>4</td>
+            <td>104 – 107</td>
+            <td>92 – 95</td>
+          </tr>
+          <tr>
+            <td><strong>IT 54</strong></td>
+            <td>44 Regular</td>
+            <td>XXL / 54</td>
+            <td>5</td>
+            <td>108 – 111</td>
+            <td>96 – 99</td>
+          </tr>
+          <tr>
+            <td><strong>IT 56</strong></td>
+            <td>46 Regular</td>
+            <td>3XL / 56</td>
+            <td>6</td>
+            <td>112 – 115</td>
+            <td>100 – 104</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="size-guide-notes">
+      <p><strong>Consiglio del Sarto:</strong> Le nostre giacche presentano una vestibilità confortevole ma sfiancata con giro manica anatomico. Se desiderate indossare la giacca sopra maglioni in cashmere sostenuti, consigliamo la vostra taglia abituale o mezza misura superiore per capi monopetto.</p>
+      <p style="margin-top: 6px;">Servizio su misura e consulenza a distanza disponibile: <a href="mailto:atelier@sartoriamilano.it" style="color: var(--accent-sienna); text-decoration: underline;">atelier@sartoriamilano.it</a></p>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       PRODUCT QUICK VIEW MODAL
+       ======================================================================== -->
+  <div class="quickview-modal" id="quickview-modal" role="dialog" aria-modal="true" aria-label="Dettagli Prodotto">
+    <div class="qv-image-pane">
+      <img id="qv-img" src="" alt="Prodotto Sartoria Milano" />
+    </div>
+
+    <div class="qv-details-pane">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+        <span class="badge-fabric" id="qv-badge">Lana Super 130s</span>
+        <button class="drawer-close" onclick="closeQuickView()">&times;</button>
+      </div>
+
+      <h3 class="editorial-heading" id="qv-title" style="font-size: 26px; margin: 12px 0 6px;">Titolo Prodotto</h3>
+      <div class="editorial-label" id="qv-mill" style="margin-bottom: 12px;">Lanificio F.lli Cerruti</div>
+
+      <div style="font-size: 20px; font-weight: 500; margin-bottom: 16px;" id="qv-price">€ 1.180</div>
+
+      <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px;" id="qv-desc">
+        Descrizione dettagliata della finitura sartoriale e della costruzione interna del capo.
+      </p>
+
+      <!-- Size Selector -->
+      <div>
+        <label style="font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600;">Seleziona Taglia Italiana</label>
+        <div class="qv-sizes" id="qv-sizes-group">
+          <button class="size-btn" onclick="selectQuickSize(this)">46</button>
+          <button class="size-btn active" onclick="selectQuickSize(this)">48</button>
+          <button class="size-btn" onclick="selectQuickSize(this)">50</button>
+          <button class="size-btn" onclick="selectQuickSize(this)">52</button>
+          <button class="size-btn" onclick="selectQuickSize(this)">54</button>
+        </div>
+      </div>
+
+      <!-- Action Button -->
+      <button class="btn-sartoria" style="width: 100%; margin-top: auto;" onclick="addQuickViewToCart()">
+        Aggiungi alla Borsa Sartoriale
+      </button>
+
+      <div style="font-size: 11px; color: var(--text-subtle); margin-top: 14px; text-align: center;">
+        Spedizione e reso gratuito in 48 ore dall'Atelier di Milano
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-notice" id="toast-notice" role="status" aria-live="polite">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8C5A3C" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    <span id="toast-text">Capo aggiunto alla tua Borsa Sartoriale.</span>
+  </div>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <h3>Sartoria Milano</h3>
+        <p data-i18n="footer-desc">
+          Boutique & Atelier di alta sartoria maschile e femminile. Fondata nel cuore del quadrilatero della moda di Milano.
+        </p>
+        <p style="margin-top: 16px; font-size: 12px; color: var(--accent-sienna);">
+          Via Monte Napoleone 14, 20121 Milano (MI)<br />
+          Telefono: +39 02 8739 1040
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h5 data-i18n="footer-col-1-title">Servizi & Atelier</h5>
+        <ul>
+          <li><a href="javascript:void(0)" onclick="openSizeGuide()" data-i18n="footer-link-sizing">Guida alle Taglie Internazionali</a></li>
+          <li><a href="#tessuti" data-i18n="footer-link-fabrics">I Lanifici e i Nostri Tessuti</a></li>
+          <li><a href="#" data-i18n="footer-link-bespoke">Prenota Appuntamento Su Misura</a></li>
+          <li><a href="#" data-i18n="footer-link-care">Cura del Cashmere e della Lana</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5 data-i18n="footer-col-2-title">Servizio Clienti</h5>
+        <ul>
+          <li><a href="#" data-i18n="footer-link-shipping">Spedizioni Celere & Resi</a></li>
+          <li><a href="#" data-i18n="footer-link-concierge">Concierge Sartoriale</a></li>
+          <li><a href="#" data-i18n="footer-link-boutiques">Le Nostre Boutique (Milano & Roma)</a></li>
+          <li><a href="#" data-i18n="footer-link-faq">Domande Frequenti</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5 data-i18n="footer-col-newsletter">Gazzetta Sartoriale</h5>
+        <p style="font-size: 12px; color: #9E988F; line-height: 1.5;" data-i18n="footer-newsletter-sub">
+          Ricevi in anteprima i tagli stagionali numerati e le disponibilità dei nuovi tessuti di Biella.
+        </p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('Iscrizione alla gazzetta confermata.');">
+          <input type="email" placeholder="Il vostro indirizzo email" required />
+          <button type="submit">&rarr;</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>&copy; 2026 Sartoria Milano S.r.l. — P.IVA IT09482910924. Tutti i diritti riservati.</div>
+      <div>Realizzato secondo i canoni della tradizione sartoriale italiana.</div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       APPLICATION LOGIC (Vanilla JS, State, Translations & Drawers)
+       ======================================================================== -->
+  <script>
+    // State management
+    const state = {
+      lang: 'IT', // 'IT' or 'EN'
+      cart: [
+        {
+          id: 101,
+          name: 'Blazer Decostruito Galles',
+          mill: 'Lanificio F.lli Cerruti',
+          size: 'IT 48',
+          price: 1180,
+          quantity: 1,
+          img: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=300&q=80'
+        },
+        {
+          id: 102,
+          name: 'Girocollo Cashmere Puro',
+          mill: 'Filatura Cariaggi',
+          size: 'IT 50',
+          price: 620,
+          quantity: 1,
+          img: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=300&q=80'
+        }
+      ],
+      products: [
+        {
+          id: 1,
+          name: 'Blazer Decostruito Galles',
+          mill: 'Lanificio F.lli Cerruti • Biella',
+          badge: 'Super 130s Merino',
+          price: 1180,
+          img: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=900&q=85',
+          desc: 'Costruzione artigianale completamente decostruita con spalla camicia e rollio naturale del rever. Lana vergine 260g/m tessuta con filati pettinati.'
+        },
+        {
+          id: 2,
+          name: 'Girocollo Cashmere Puro',
+          mill: 'Filatura Cariaggi • Marche',
+          badge: '100% Cashmere 2-Ply',
+          price: 620,
+          img: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=900&q=85',
+          desc: 'Realizzato a maglia rasata su finezza 12. Morbidezza straordinaria e traspirabilità naturale ideale a contatto diretto con la pelle.'
+        },
+        {
+          id: 3,
+          name: 'Pantaloni Doppia Pince',
+          mill: 'Vitale Barberis Canonico • Biella',
+          badge: 'Flanella Cardata',
+          price: 440,
+          img: 'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=900&q=85',
+          desc: 'Silhouette classica con vita alta sartoriale e passanti per cintura rimossi a favore dei tiranti laterali a fibbia inglese.'
+        },
+        {
+          id: 4,
+          name: 'Tote Bag Monte Napoleone',
+          mill: 'Conceria Santa Croce • Toscana',
+          badge: 'Pelle Pieno Fiore',
+          price: 890,
+          img: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=900&q=85',
+          desc: 'Borsa artigianale tagliata e cucita con punto sella. Interno foderato in pura flanella pettinata a righe con scomparto protetto per notebook.'
+        }
+      ],
+      currentQvProduct: null
+    };
+
+    // Bilingual Copy Dictionary
+    const translations = {
+      IT: {
+        'announcement-text': 'Spedizione celere omaggio per acquisti oltre €500',
+        'announcement-sub': 'Bespoke & Sartoria Su Misura • Milano & Roma',
+        'nav-collection': 'Collezione',
+        'nav-lookbook': 'Lookbook',
+        'nav-fabrics': 'Tessuti & Manifattura',
+        'nav-sizing': 'Guida alle Taglie',
+        'nav-cart': 'Borsa',
+        'hero-season': 'Collezione Autunno / Inverno',
+        'hero-fabric-badge': 'Pura Lana Vergine Super 130s',
+        'hero-heading': "L'arte sartoriale milanese. Rigore, morbidezza, silenzio.",
+        'hero-lead': "Capi costruiti a mano nell'Atelier di Milano con lane pregiate di Biella e cashmere Cariaggi. Linee non ostentate pensate per durare decenni.",
+        'hero-cta-explore': 'Esplora la Collezione',
+        'hero-cta-sizes': 'Tabella Taglie & Misure',
+        'hero-overlay-title': 'Il Cappotto Monopetto Biella',
+        'hero-overlay-desc': "Taglio decostruito con spalla camicia e bottoni in vero corno naturale d'acqua.",
+        'manifesto-label': 'Principio Sartoriale',
+        'manifesto-title': 'Lusso Senza Rumore',
+        'manifesto-quote': '“La vera eleganza milanese si riconosce dalla naturalezza con cui cade il tessuto sulle spalle, mai da un logo visibile.”',
+        'pillar-1-title': '01. Manifattura Locale',
+        'pillar-1-desc': "Ogni giacca richiede oltre 38 ore di lavorazione manuale tra imbastitura e asole rifinite a filo di seta.",
+        'pillar-2-title': '02. Selezione Biellese',
+        'pillar-2-desc': "Lane pettinate e flanelle tessute negli storici lanifici della Valle Cervo, con finissaggi all'acqua di sorgente.",
+        'pillar-3-title': '03. Vestibilità Senza Tempo',
+        'pillar-3-desc': 'Silhouette bilanciata tra il rigore formale ambrosiano e la morbidezza decostruita partenopea.',
+        'lookbook-label': 'Guida di Stile',
+        'lookbook-title': 'Lookbook: Autunno a Brera',
+        'lookbook-viewall': 'Vedi tutti i capi in catalogo \u2192',
+        'catalog-label': 'Capi Pronti & Sartoria',
+        'catalog-title': 'Collezione Ready-To-Wear',
+        'filter-all': 'Tutti i Capi',
+        'filter-blazers': 'Giacche & Blazers',
+        'filter-knitwear': 'Maglieria',
+        'filter-trousers': 'Pantaloni',
+        'filter-accessories': 'Accessori & Pelletteria',
+        'card-quickview': 'Dettagli & Misure Rapide',
+        'card-select-size': 'Scegli Taglia \u2192',
+        'fabric-story-label': 'Tracciabilità e Origine',
+        'fabric-story-title': "L'anima del capo è nella fibra.",
+        'fabric-story-desc': 'Non acquistiamo tessuti a metraggio commerciale. Lavoriamo a stretto contatto con gli storici lanifici di Biella e le seterie di Como.',
+        'cart-title': 'Borsa Sartoriale',
+        'cart-subtotal': 'Totale Provvisorio',
+        'cart-tax-note': 'IVA 22% inclusa • Confezione rigida sartoriale con custodia in lino in omaggio',
+        'cart-checkout-btn': "Procedi all'Ordine Sicuro \u2192",
+        'modal-size-title': 'Guida alle Taglie & Conversione Internazionale'
+      },
+      EN: {
+        'announcement-text': 'Complimentary express courier on orders over €500',
+        'announcement-sub': 'Bespoke & Made to Measure • Milan & Rome',
+        'nav-collection': 'Collection',
+        'nav-lookbook': 'Lookbook',
+        'nav-fabrics': 'Fabrics & Origin',
+        'nav-sizing': 'Size Guide',
+        'nav-cart': 'Bag',
+        'hero-season': 'Autumn / Winter Collection',
+        'hero-fabric-badge': 'Super 130s Pure Virgin Wool',
+        'hero-heading': 'The art of Milanese tailoring. Precision, ease, silence.',
+        'hero-lead': 'Hand-finished garments in our Milan atelier utilizing select Biella wools and Cariaggi cashmere. Unpretentious lines made to endure generations.',
+        'hero-cta-explore': 'Explore Collection',
+        'hero-cta-sizes': 'Size & Fit Conversion',
+        'hero-overlay-title': 'The Biella Single-Breasted Overcoat',
+        'hero-overlay-desc': 'Deconstructed shoulder with handcrafted horn buttons.',
+        'manifesto-label': 'Sartorial Principle',
+        'manifesto-title': 'Quiet Luxury',
+        'manifesto-quote': '“True Milanese elegance is recognized by the effortless drape over the shoulders, never by a visible brand logo.”',
+        'pillar-1-title': '01. Handcrafted in Italy',
+        'pillar-1-desc': 'Each jacket entails over 38 hours of artisan handwork, hand-sewn basting, and silk-threaded buttonholes.',
+        'pillar-2-title': '02. Biella Mill Heritage',
+        'pillar-2-desc': 'Combed wools and flannels woven in Piedmontese alpine river valleys using pure glacial washings.',
+        'pillar-3-title': '03. Timeless Proportions',
+        'pillar-3-desc': 'A balanced silhouette between Northern architectural structure and Southern softness.',
+        'lookbook-label': 'Style Editorial',
+        'lookbook-title': 'Lookbook: Autumn in Brera',
+        'lookbook-viewall': 'Browse all catalog garments \u2192',
+        'catalog-label': 'Ready-to-Wear & Tailored',
+        'catalog-title': 'The Permanent Collection',
+        'filter-all': 'All Pieces',
+        'filter-blazers': 'Jackets & Blazers',
+        'filter-knitwear': 'Knitwear',
+        'filter-trousers': 'Trousers',
+        'filter-accessories': 'Accessories & Leather',
+        'card-quickview': 'Details & Quick Measurements',
+        'card-select-size': 'Select Size \u2192',
+        'fabric-story-label': 'Traceability & Provenance',
+        'fabric-story-title': 'The garment soul resides in the fiber.',
+        'fabric-story-desc': 'We avoid commodity cloth. We co-develop exclusive weaves directly with historic mills in Biella and Como.',
+        'cart-title': 'Sartorial Bag',
+        'cart-subtotal': 'Subtotal',
+        'cart-tax-note': 'Italian VAT included • Signature sartorial box and breathable linen garment bag included',
+        'cart-checkout-btn': 'Proceed to Secure Checkout \u2192',
+        'modal-size-title': 'Size Guide & International Conversion'
+      }
+    };
+
+    // Initialize UI
+    function init() {
+      renderCart();
+    }
+
+    // Toggle Language (EN / IT)
+    function toggleLanguage() {
+      state.lang = state.lang === 'IT' ? 'EN' : 'IT';
+      document.getElementById('current-lang').textContent = state.lang;
+      
+      const dict = translations[state.lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+          el.textContent = dict[key];
+        }
+      });
+      showToast(state.lang === 'IT' ? 'Lingua impostata su Italiano' : 'Language set to English');
+    }
+
+    // Filter Catalog
+    function filterCategory(category, btnElement) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      if (btnElement) btnElement.classList.add('active');
+
+      const cards = document.querySelectorAll('.product-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Swatch switcher for Fabric Dossier
+    const swatches = {
+      biella: {
+        img: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=85',
+        weave: 'Twill Pettinato 2/2',
+        finish: "All'Acqua Dolce di Biella",
+        drape: 'Fluido / 9.2/10',
+        season: '4 Stagioni'
+      },
+      cashmere: {
+        img: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=900&q=85',
+        weave: 'Costa Inglese / 2-Ply',
+        finish: 'Lavaggio Naturale Idrofilo',
+        drape: 'Soffice & Termoregolatore',
+        season: 'Autunno / Inverno'
+      },
+      silk: {
+        img: 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=900&q=85',
+        weave: 'Raso Pesante 16 Momme',
+        finish: 'Mano Opaca Comasca',
+        drape: 'Scivolato Lucido Nobile',
+        season: 'Annuale / Serale'
+      }
+    };
+
+    function switchSwatch(type, itemEl) {
+      document.querySelectorAll('.swatch-item').forEach(el => el.classList.remove('active'));
+      itemEl.classList.add('active');
+
+      const data = swatches[type];
+      const img = document.getElementById('fabric-display-img');
+      img.style.opacity = '0.4';
+      setTimeout(() => {
+        img.src = data.img;
+        document.getElementById('spec-weave').textContent = data.weave;
+        document.getElementById('spec-finish').textContent = data.finish;
+        document.getElementById('spec-drape').textContent = data.drape;
+        document.getElementById('spec-season').textContent = data.season;
+        img.style.opacity = '1';
+      }, 200);
+    }
+
+    // Texture Swatch Quick Preview
+    function openTextureView(fabricType) {
+      showToast('Visualizzazione ad alta definizione della trama tessile caricata.');
+      openQuickView(1);
+    }
+
+    // Drawer Management
+    function openCart() {
+      document.getElementById('cart-drawer').classList.add('open');
+      document.getElementById('drawer-overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCart() {
+      document.getElementById('cart-drawer').classList.remove('open');
+      document.getElementById('drawer-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function openSizeGuide() {
+      document.getElementById('size-modal').classList.add('open');
+      document.getElementById('drawer-overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeSizeGuide() {
+      document.getElementById('size-modal').classList.remove('open');
+      document.getElementById('drawer-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function closeAllDrawers() {
+      closeCart();
+      closeSizeGuide();
+      closeQuickView();
+    }
+
+    // Quick View Modal
+    function openQuickView(productId) {
+      const p = state.products.find(item => item.id === productId) || state.products[0];
+      state.currentQvProduct = p;
+
+      document.getElementById('qv-img').src = p.img;
+      document.getElementById('qv-title').textContent = p.name;
+      document.getElementById('qv-mill').textContent = p.mill;
+      document.getElementById('qv-badge').textContent = p.badge;
+      document.getElementById('qv-price').textContent = '€ ' + p.price.toLocaleString('it-IT');
+      document.getElementById('qv-desc').textContent = p.desc;
+
+      document.getElementById('quickview-modal').classList.add('open');
+      document.getElementById('drawer-overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeQuickView() {
+      document.getElementById('quickview-modal').classList.remove('open');
+      if (!document.getElementById('cart-drawer').classList.contains('open')) {
+        document.getElementById('drawer-overlay').classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function selectQuickSize(btn) {
+      document.querySelectorAll('#qv-sizes-group .size-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function addQuickViewToCart() {
+      if (!state.currentQvProduct) return;
+      const activeSizeBtn = document.querySelector('#qv-sizes-group .size-btn.active');
+      const chosenSize = activeSizeBtn ? 'IT ' + activeSizeBtn.textContent.trim() : 'IT 48';
+      
+      addToCartDirect(state.currentQvProduct.name, state.currentQvProduct.price, chosenSize, state.currentQvProduct.img);
+      closeQuickView();
+      openCart();
+    }
+
+    // Cart Core Functions
+    function addToCartDirect(name, price, size, img) {
+      const existing = state.cart.find(item => item.name === name && item.size === size);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        state.cart.push({
+          id: Date.now(),
+          name: name,
+          mill: 'Sartoria Milano Atelier',
+          size: size,
+          price: price,
+          quantity: 1,
+          img: img
+        });
+      }
+      renderCart();
+      showToast(`${name} (${size}) aggiunto alla borsa.`);
+    }
+
+    function updateCartQty(index, delta) {
+      state.cart[index].quantity += delta;
+      if (state.cart[index].quantity <= 0) {
+        state.cart.splice(index, 1);
+      }
+      renderCart();
+    }
+
+    function removeCartItem(index) {
+      state.cart.splice(index, 1);
+      renderCart();
+    }
+
+    function renderCart() {
+      const container = document.getElementById('cart-items-container');
+      const totalCount = state.cart.reduce((sum, item) => sum + item.quantity, 0);
+      document.getElementById('header-cart-count').textContent = totalCount;
+
+      if (state.cart.length === 0) {
+        container.innerHTML = `
+          <div style="text-align: center; padding: 48px 0; color: var(--text-muted);">
+            <p style="font-family: var(--font-serif); font-size: 20px; margin-bottom: 8px;">La vostra borsa sartoriale è vuota.</p>
+            <p style="font-size: 13px;">Esplorate i capi della stagione per iniziare la selezione.</p>
+          </div>
+        `;
+        document.getElementById('cart-subtotal-val').textContent = '€ 0';
+        return;
+      }
+
+      let subtotal = 0;
+      container.innerHTML = state.cart.map((item, idx) => {
+        subtotal += item.price * item.quantity;
+        return `
+          <div class="cart-item-row">
+            <img class="cart-item-img" src="${item.img}" alt="${item.name}" />
+            <div class="cart-item-info">
+              <h4>${item.name}</h4>
+              <div class="item-size">${item.size} • ${item.mill}</div>
+              <div class="qty-controls">
+                <button class="qty-btn" onclick="updateCartQty(${idx}, -1)">–</button>
+                <span class="qty-val">${item.quantity}</span>
+                <button class="qty-btn" onclick="updateCartQty(${idx}, 1)">+</button>
+              </div>
+            </div>
+            <div class="cart-item-price">
+              <div class="price-num">€ ${(item.price * item.quantity).toLocaleString('it-IT')}</div>
+              <button class="remove-btn" onclick="removeCartItem(${idx})">Rimuovi</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('cart-subtotal-val').textContent = '€ ' + subtotal.toLocaleString('it-IT');
+    }
+
+    function proceedCheckout() {
+      showToast('Apertura sessione di pagamento riservata con spedizione assicurata.');
+      setTimeout(() => {
+        alert('Ordine simulato per Sartoria Milano: Grazie per aver scelto la sartoria milanese d\'eccellenza.');
+      }, 400);
+    }
+
+    // Toast Alert
+    function showToast(msg) {
+      const toast = document.getElementById('toast-notice');
+      document.getElementById('toast-text').textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3500);
+    }
+
+    // Keyboard Access (Escape closes modal)
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeAllDrawers();
+      }
+    });
+
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>
