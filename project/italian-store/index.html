@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>SARTORIA BELLINI MILANO | دار بيليني للأزياء الإيطالية الراقية</title>
+  
+  <!-- Material Symbols & Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Custom Luxury Storefront Styles -->
+  <link rel="stylesheet" href="css/store.css"/>
+</head>
+<body class="bg-[var(--c-travertine)] text-[var(--c-espresso)] bg-grain font-sans antialiased selection:bg-[var(--c-siena)] selection:text-white">
+
+  <!-- ================= Top Luxury Notification Strip ================= -->
+  <div class="bg-[var(--c-espresso)] text-[var(--c-cream)] text-[11px] py-2 px-4 border-b border-[var(--c-border-gold)]">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div class="flex items-center gap-3">
+        <span class="text-[var(--c-siena)] tracking-widest font-semibold font-logo">MILANO • FIRENZE • ROMA</span>
+        <span class="hidden md:inline text-[var(--c-stone)]">|</span>
+        <span class="hidden md:inline text-[var(--c-travertine)] font-light">توصيل دولي خاص وسريع عبر DHL Express لجميع دول الشرق الأوسط</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <!-- Currency Selector -->
+        <div class="flex items-center gap-1.5">
+          <span class="text-[var(--c-stone)] text-xs">العملة:</span>
+          <select class="currency-selector bg-transparent text-[var(--c-travertine)] text-[11px] font-semibold border-none focus:outline-none cursor-pointer">
+            <option value="EUR" class="bg-[var(--c-espresso)]">EUR (€)</option>
+            <option value="USD" class="bg-[var(--c-espresso)]">USD ($)</option>
+            <option value="EGP" class="bg-[var(--c-espresso)]">EGP (ج.م)</option>
+            <option value="GBP" class="bg-[var(--c-espresso)]">GBP (£)</option>
+          </select>
+        </div>
+        <span class="text-[var(--c-stone)]">•</span>
+        <a href="#bespoke-studio" class="text-[var(--c-siena)] hover:underline font-semibold flex items-center gap-1">
+          <span>حجز استشارة تفصيل خاص</span>
+          <span class="material-symbols-outlined text-[13px]">arrow_back</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= Header Navigation ================= -->
+  <header class="sticky top-0 z-40 bg-[var(--c-travertine)]/90 backdrop-blur-md border-b border-[var(--c-border)]">
+    <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+      
+      <!-- Right: Main Menu Links -->
+      <nav class="hidden lg:flex items-center gap-8 text-xs font-semibold uppercase tracking-widest text-[var(--c-espresso)]">
+        <a href="#collection" class="hover:text-[var(--c-siena)] transition-colors">التشكيلة الحصرية</a>
+        <a href="#bespoke-studio" class="hover:text-[var(--c-siena)] transition-colors flex items-center gap-1">
+          <span>التفصيل الخاص</span>
+          <span class="badge-luxury badge-siena py-0.5 text-[9px]">Su Misura</span>
+        </a>
+        <a href="#lookbook" class="hover:text-[var(--c-siena)] transition-colors">اللوك بوك الإيطالي</a>
+        <a href="#heritage" class="hover:text-[var(--c-siena)] transition-colors">إرث الحرفة</a>
+      </nav>
+
+      <!-- Center: Luxury Brand Identity -->
+      <div class="text-center flex flex-col items-center">
+        <a href="index.html" class="flex flex-col items-center">
+          <span class="font-logo text-3xl sm:text-4xl tracking-widest text-[var(--c-espresso)] uppercase leading-none font-medium">
+            SARTORIA BELLINI
+          </span>
+          <span class="font-display italic text-xs tracking-widest text-[var(--c-siena)] mt-1">
+            Milano • Fondata nel 1968
+          </span>
+        </a>
+      </div>
+
+      <!-- Left: Search, Account & Shopping Bag -->
+      <div class="flex items-center gap-5">
+        <!-- Live Search Field -->
+        <div class="relative hidden sm:block">
+          <input 
+            type="text" 
+            id="store-search-input"
+            placeholder="ابحث عن قطعة أو قماش..." 
+            class="w-48 lg:w-60 bg-white/60 border border-[var(--c-border)] px-3 py-1.5 pr-8 text-xs text-[var(--c-espresso)] placeholder:text-[var(--c-stone)] focus:outline-none focus:border-[var(--c-siena)] focus:bg-white transition-all"
+          />
+          <span class="material-symbols-outlined text-[16px] text-[var(--c-stone)] absolute right-2.5 top-2.5 pointer-events-none">search</span>
+        </div>
+
+        <!-- Wishlist & VIP Concierge -->
+        <button type="button" class="text-[var(--c-espresso)] hover:text-[var(--c-siena)] transition-colors hidden sm:flex items-center" title="خدمة المساعد الشخصي">
+          <span class="material-symbols-outlined text-[22px]">support_agent</span>
+        </button>
+
+        <!-- Bag Drawer Trigger -->
+        <button onclick="toggleCartDrawer(true)" type="button" class="relative flex items-center gap-2 bg-[var(--c-espresso)] text-[var(--c-travertine)] px-4 py-2 hover:bg-[var(--c-siena)] transition-colors shadow-sm">
+          <span class="material-symbols-outlined text-[19px]">shopping_bag</span>
+          <span class="text-xs uppercase tracking-wider font-semibold hidden md:inline">الحقيبة</span>
+          <span class="cart-count-badge hidden absolute -top-2 -left-2 w-5 h-5 bg-[var(--c-siena)] text-white text-[10px] font-bold rounded-full flex items-center justify-center border-2 border-[var(--c-travertine)]">
+            0
+          </span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ================= Editorial Hero Section ================= -->
+  <section class="relative overflow-hidden border-b border-[var(--c-border)]">
+    <div class="max-w-7xl mx-auto px-6 py-12 lg:py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <!-- Right Column: Editorial Copy -->
+        <div class="lg:col-span-6 flex flex-col justify-center">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="w-8 h-[1px] bg-[var(--c-siena)]"></span>
+            <span class="badge-luxury badge-siena">COLLEZIONE AUTUNNO / INVERNO 2025</span>
+          </div>
+
+          <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.08] tracking-tight text-[var(--c-espresso)] mb-6">
+            فن الأناقة الإيطالية <br/>
+            <span class="italic font-normal text-[var(--c-siena)]">الخالدة بلا مجهود</span>
+          </h1>
+
+          <p class="text-base sm:text-lg leading-relaxed text-[var(--c-stone)] mb-8 max-w-xl font-light">
+            مستوحاة من مبدأ "Sprezzatura" الإيطالي — الأناقة العفوية المتقنة. نحيك كل قطعة يدوياً في مشاغلنا التاريخية بمدينة ميلانو من أنقى أقمشة الكشمير والصوف التوسكاني البكر.
+          </p>
+
+          <!-- Interactive Fabric Feature Badges -->
+          <div class="grid grid-cols-3 gap-3 mb-8 p-4 bg-white/70 border border-[var(--c-border)] backdrop-blur-sm">
+            <div class="text-center border-l border-[var(--c-border)] last:border-none pl-2">
+              <span class="font-display text-xl sm:text-2xl font-bold text-[var(--c-espresso)] block">100%</span>
+              <span class="text-[11px] text-[var(--c-stone)] font-medium">صوف بييلا البكر</span>
+            </div>
+            <div class="text-center border-l border-[var(--c-border)] pl-2">
+              <span class="font-display text-xl sm:text-2xl font-bold text-[var(--c-siena)] block">42+</span>
+              <span class="text-[11px] text-[var(--c-stone)] font-medium">ساعة حياكة يدوية</span>
+            </div>
+            <div class="text-center">
+              <span class="font-display text-xl sm:text-2xl font-bold text-[var(--c-espresso)] block">Loro Piana</span>
+              <span class="text-[11px] text-[var(--c-stone)] font-medium">كشمير معتمد أصلي</span>
+            </div>
+          </div>
+
+          <!-- CTAs -->
+          <div class="flex flex-wrap items-center gap-4">
+            <a href="#collection" class="bg-[var(--c-espresso)] text-[var(--c-travertine)] px-8 py-4 text-xs uppercase tracking-widest font-bold hover:bg-[var(--c-siena)] transition-colors shadow-lg flex items-center gap-2">
+              <span>استكشف المجموعة الحالية</span>
+              <span class="material-symbols-outlined text-[18px]">arrow_downward</span>
+            </a>
+            <a href="#bespoke-studio" class="border border-[var(--c-espresso)] text-[var(--c-espresso)] px-7 py-4 text-xs uppercase tracking-widest font-semibold hover:border-[var(--c-siena)] hover:text-[var(--c-siena)] transition-colors">
+              صمم بدلتك المخصصة (Su Misura)
+            </a>
+          </div>
+        </div>
+
+        <!-- Left Column: Editorial Dual Imagery -->
+        <div class="lg:col-span-6 relative">
+          <div class="relative w-full aspect-[4/5] bg-[var(--c-cream)] overflow-hidden border border-[var(--c-border)] shadow-2xl">
+            <img 
+              src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=1200&q=85" 
+              alt="Italian Sartorial Tailoring" 
+              class="w-full h-full object-cover object-top filter contrast-[1.03]"
+            />
+            
+            <!-- Floating Sartorial Stamp Card -->
+            <div class="absolute bottom-6 right-6 bg-white/95 backdrop-blur-md p-5 border-l-4 border-[var(--c-siena)] max-w-xs shadow-xl hidden sm:block">
+              <div class="flex items-center gap-2 text-[var(--c-siena)] text-xs font-bold mb-1">
+                <span class="material-symbols-outlined text-[16px]">verified</span>
+                <span>شهادة الصنع الحرفي (Certificato D'Autenticità)</span>
+              </div>
+              <p class="text-xs text-[var(--c-stone)] leading-relaxed">
+                كل سترة تحمل رقماً تسلسلياً فريداً ومطرزة بتوقيع الخياط الماستر في مشغل ميلانو.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Heritage & Craftsmanship Pillar Strip ================= -->
+  <section class="bg-white border-b border-[var(--c-border)] py-10" id="heritage">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 bg-[var(--c-travertine)] border border-[var(--c-border)] flex items-center justify-center shrink-0 text-[var(--c-siena)]">
+            <span class="material-symbols-outlined text-[24px]">architecture</span>
+          </div>
+          <div>
+            <h4 class="font-display text-lg font-bold text-[var(--c-espresso)] mb-1">حياكة سارتوريال ميلانو</h4>
+            <p class="text-xs text-[var(--c-stone)] leading-relaxed">كتف طبيعي مرن بدون حشوات صناعية ثقيلة يمنح حرية حركة تامة.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 bg-[var(--c-travertine)] border border-[var(--c-border)] flex items-center justify-center shrink-0 text-[var(--c-siena)]">
+            <span class="material-symbols-outlined text-[24px]">dry_cleaning</span>
+          </div>
+          <div>
+            <h4 class="font-display text-lg font-bold text-[var(--c-espresso)] mb-1">أقمشة بييلا التوسكانية</h4>
+            <p class="text-xs text-[var(--c-stone)] leading-relaxed">شراكات حصرية مع لورو بيانا، وفيتالي باربيريس، وحرير كومو.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 bg-[var(--c-travertine)] border border-[var(--c-border)] flex items-center justify-center shrink-0 text-[var(--c-siena)]">
+            <span class="material-symbols-outlined text-[24px]">local_shipping</span>
+          </div>
+          <div>
+            <h4 class="font-display text-lg font-bold text-[var(--c-espresso)] mb-1">شحن فاخر ومؤمن</h4>
+            <p class="text-xs text-[var(--c-stone)] leading-relaxed">تغليف في أكياس حماية من الكتان الإيطالي وصندوق هدايا خشبي محفور.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 bg-[var(--c-travertine)] border border-[var(--c-border)] flex items-center justify-center shrink-0 text-[var(--c-siena)]">
+            <span class="material-symbols-outlined text-[24px]">handshake</span>
+          </div>
+          <div>
+            <h4 class="font-display text-lg font-bold text-[var(--c-espresso)] mb-1">ضمان الملاءمة التامة</h4>
+            <p class="text-xs text-[var(--c-stone)] leading-relaxed">تعديل قياسات مجاني بالتعاون مع أرقى الخياطين المعتمدين في مدينتك.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Interactive Lookbook Section ("Shop The Look") ================= -->
+  <section class="py-16 lg:py-24 border-b border-[var(--c-border)]" id="lookbook">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+        <div>
+          <span class="badge-luxury badge-olive mb-2">LO STILE MILANESE</span>
+          <h2 class="font-display text-3xl sm:text-5xl font-bold text-[var(--c-espresso)]">
+            إطلالات اللوك بوك التفاعلية
+          </h2>
+        </div>
+        <p class="text-sm text-[var(--c-stone)] max-w-md">
+          انقر فوق نقاط التفاعل (Hotspots) المضيئة على الموديل لاستكشاف تفاصيل كل قطعة وإضافتها مباشرة إلى حقيبة مقتنياتك.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white p-6 sm:p-10 border border-[var(--c-border)] shadow-xl">
+        
+        <!-- Hotspot Image Showcase -->
+        <div class="lg:col-span-7 relative aspect-[3/4] sm:aspect-[4/5] bg-[var(--c-cream)] overflow-hidden border border-[var(--c-border)]">
+          <img 
+            src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80" 
+            alt="Milano Sartorial Look" 
+            class="w-full h-full object-cover object-top"
+          />
+
+          <!-- Pin 1: Jacket -->
+          <div class="hotspot-pin top-[32%] right-[44%]" data-product-id="sb-04" title="بدلة ثلاث قطع مقلمة دولتشي فيتا">
+            <span class="material-symbols-outlined text-[14px]">add</span>
+          </div>
+
+          <!-- Pin 2: Silk Shirt -->
+          <div class="hotspot-pin top-[24%] right-[52%]" data-product-id="sb-03" title="قميص حرير كومو الإيطالي">
+            <span class="material-symbols-outlined text-[14px]">add</span>
+          </div>
+
+          <!-- Pin 3: Trousers / Pocket Square -->
+          <div class="hotspot-pin top-[58%] right-[42%]" data-product-id="sb-06" title="بنطال فلانيل بكسرات مزدوجة">
+            <span class="material-symbols-outlined text-[14px]">add</span>
+          </div>
+        </div>
+
+        <!-- Featured Look Breakdown Column -->
+        <div class="lg:col-span-5 flex flex-col justify-between h-full py-4">
+          <div>
+            <span class="text-xs uppercase font-bold tracking-widest text-[var(--c-siena)] block mb-2">LOOKBOOK NO. 04</span>
+            <h3 class="font-display text-3xl font-bold text-[var(--c-espresso)] mb-4">
+              إطلالة "La Dolce Vita" المسائية
+            </h3>
+            <p class="text-sm leading-relaxed text-[var(--c-stone)] mb-6 font-light">
+              مزيج متناغم يجمع بين سترة مقلمة بخطوط الطباشير الرفيعة وقماش الفلانيل الإيطالي، مع قميص من حرير كومو العاجي. صُممت هذه الإطلالة لتجسد ثقة الرجل الإيطالي في المناسبات الرسمية ولقاءات الأعمال الراقية.
+            </p>
+
+            <!-- Quick list of look items -->
+            <div class="space-y-3 mb-8">
+              <div onclick="openQuickView('sb-04')" class="flex items-center justify-between p-3 bg-[var(--c-travertine)] hover:border-[var(--c-siena)] border border-[var(--c-border)] cursor-pointer transition-colors">
+                <div class="flex items-center gap-3">
+                  <span class="w-2 h-2 rounded-full bg-[var(--c-siena)]"></span>
+                  <span class="text-xs font-bold text-[var(--c-espresso)]">بدلة ثلاث قطع مقلمة "دولتشي فيتا"</span>
+                </div>
+                <span class="font-display text-sm font-bold text-[var(--c-espresso)]">€2,950</span>
+              </div>
+
+              <div onclick="openQuickView('sb-03')" class="flex items-center justify-between p-3 bg-[var(--c-travertine)] hover:border-[var(--c-siena)] border border-[var(--c-border)] cursor-pointer transition-colors">
+                <div class="flex items-center gap-3">
+                  <span class="w-2 h-2 rounded-full bg-[var(--c-siena)]"></span>
+                  <span class="text-xs font-bold text-[var(--c-espresso)]">قميص حرير كومو الملكي</span>
+                </div>
+                <span class="font-display text-sm font-bold text-[var(--c-espresso)]">€620</span>
+              </div>
+
+              <div onclick="openQuickView('sb-06')" class="flex items-center justify-between p-3 bg-[var(--c-travertine)] hover:border-[var(--c-siena)] border border-[var(--c-border)] cursor-pointer transition-colors">
+                <div class="flex items-center gap-3">
+                  <span class="w-2 h-2 rounded-full bg-[var(--c-siena)]"></span>
+                  <span class="text-xs font-bold text-[var(--c-espresso)]">بنطال فلانيل بكسرات مزدوجة</span>
+                </div>
+                <span class="font-display text-sm font-bold text-[var(--c-espresso)]">€780</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-[var(--c-border)]">
+            <button onclick="openQuickView('sb-04')" type="button" class="w-full bg-[var(--c-espresso)] text-[var(--c-travertine)] py-4 text-xs uppercase tracking-widest font-bold hover:bg-[var(--c-siena)] transition-colors flex items-center justify-center gap-2 shadow-md">
+              <span class="material-symbols-outlined text-[18px]">visibility</span>
+              <span>عرض تفاصيل الطقم بالكامل</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= Main Product Catalog Section ================= -->
+  <section class="py-16 lg:py-24" id="collection">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Section Header & Filter Tabs -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+        <div>
+          <span class="badge-luxury badge-siena mb-2">CATALOGO GENERALE</span>
+          <h2 class="font-display text-3xl sm:text-5xl font-bold text-[var(--c-espresso)]">
+            التشكيلة الإيطالية الجاهزة للارتداء
+          </h2>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="flex flex-wrap gap-2">
+          <button type="button" class="filter-tab-btn active px-4 py-2 text-xs font-semibold uppercase tracking-wider bg-[var(--c-espresso)] text-[var(--c-travertine)] border border-[var(--c-espresso)] transition-all" data-category="all">
+            جميع القطع
+          </button>
+          <button type="button" class="filter-tab-btn px-4 py-2 text-xs font-semibold uppercase tracking-wider bg-white text-[var(--c-espresso)] border border-[var(--c-border)] hover:border-[var(--c-siena)] transition-all" data-category="tailoring">
+            البدل والسترات
+          </button>
+          <button type="button" class="filter-tab-btn px-4 py-2 text-xs font-semibold uppercase tracking-wider bg-white text-[var(--c-espresso)] border border-[var(--c-border)] hover:border-[var(--c-siena)] transition-all" data-category="outerwear">
+            معاطف الكشمير
+          </button>
+          <button type="button" class="filter-tab-btn px-4 py-2 text-xs font-semibold uppercase tracking-wider bg-white text-[var(--c-espresso)] border border-[var(--c-border)] hover:border-[var(--c-siena)] transition-all" data-category="shirts">
+            القمصان والحرير
+          </button>
+          <button type="button" class="filter-tab-btn px-4 py-2 text-xs font-semibold uppercase tracking-wider bg-white text-[var(--c-espresso)] border border-[var(--c-border)] hover:border-[var(--c-siena)] transition-all" data-category="footwear">
+            الأحذية والجلود
+          </button>
+        </div>
+      </div>
+
+      <!-- Dynamic Products Grid -->
+      <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Injected dynamically via store.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= Interactive "Su Misura" Bespoke Studio ================= -->
+  <section class="py-16 lg:py-24 bg-[var(--c-espresso)] text-[var(--c-travertine)] border-t border-[var(--c-border-gold)]" id="bespoke-studio">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="badge-luxury badge-siena mb-3">ATELIER SU MISURA MILANO</span>
+        <h2 class="font-display text-4xl sm:text-6xl font-bold mb-4">
+          استوديو الحياكة وتصميم بدلتك الخاصة
+        </h2>
+        <p class="text-sm sm:text-base text-[var(--c-cream)]/75 leading-relaxed font-light">
+          صمم بدلتك وفق تفضيلاتك الدقيقة من بين أفخم أقمشة لورو بيانا، واختر القصة والياقة والأزرار المطرزة بأحرف اسمك الخاصة (Monogram).
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        
+        <!-- Step Configurator Form (8 Columns) -->
+        <div class="lg:col-span-8 space-y-10">
+          
+          <!-- Step 1: Silhouette -->
+          <div>
+            <div class="flex items-center gap-2 mb-4">
+              <span class="w-6 h-6 rounded-full bg-[var(--c-siena)] text-white text-xs font-bold flex items-center justify-center">1</span>
+              <h3 class="font-display text-2xl font-bold">اختر القصة وبنية الكتف (Silhouette):</h3>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="bespoke-option selected p-5 text-[var(--c-espresso)]" data-group="silhouette" data-name="قصة نابولي غير المبطنة (Spalla Camicia)" data-price="450">
+                <div class="flex justify-between items-start mb-2">
+                  <h4 class="font-display text-lg font-bold">Spalla Camicia (نابولي)</h4>
+                  <span class="badge-luxury badge-siena">+€450</span>
+                </div>
+                <p class="text-xs text-[var(--c-stone)] leading-relaxed">
+                  كتف طبيعي بدون حشو، مريح وناعم ينسدل مع حركة الجسم بحرية تامة.
+                </p>
+              </div>
+
+              <div class="bespoke-option p-5 text-[var(--c-espresso)]" data-group="silhouette" data-name="قصة ميلانو المهندسة (Milano Structured)" data-price="550">
+                <div class="flex justify-between items-start mb-2">
+                  <h4 class="font-display text-lg font-bold">Milano Sartoriale (ميلانو)</h4>
+                  <span class="badge-luxury badge-siena">+€550</span>
+                </div>
+                <p class="text-xs text-[var(--c-stone)] leading-relaxed">
+                  بنية محددة بخياطة صدر متينة وقوام يبرز وقفة الصدر والكتفين بأناقة ملكية.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Fabric & Mill -->
+          <div>
+            <div class="flex items-center gap-2 mb-4">
+              <span class="w-6 h-6 rounded-full bg-[var(--c-siena)] text-white text-xs font-bold flex items-center justify-center">2</span>
+              <h3 class="font-display text-2xl font-bold">اختر نوعية القماش ودار الغزل الإيطالية:</h3>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div class="bespoke-option selected p-4 text-[var(--c-espresso)]" data-group="fabric" data-name="صوف لورو بيانا سوبر 160 (كحلي ملكي)" data-price="1600">
+                <span class="text-[10px] uppercase font-bold text-[var(--c-siena)] block mb-1">LORO PIANA</span>
+                <h4 class="font-display text-base font-bold mb-1">Super 160s Wool</h4>
+                <p class="text-[11px] text-[var(--c-stone)] mb-2">كحلي كلاسيكي عميق، خفيف ومقاوم للتجعد.</p>
+                <span class="font-display text-xs font-bold text-[var(--c-siena)]">+€1,600</span>
+              </div>
+
+              <div class="bespoke-option p-4 text-[var(--c-espresso)]" data-group="fabric" data-name="فلانيل فيتالي باربيريس (رمادي ميديوم)" data-price="1400">
+                <span class="text-[10px] uppercase font-bold text-[var(--c-siena)] block mb-1">CANONICO</span>
+                <h4 class="font-display text-base font-bold mb-1">Heavy Flannel</h4>
+                <p class="text-[11px] text-[var(--c-stone)] mb-2">فلانيل دافئ فائق الفخامة للمواسم الباردة.</p>
+                <span class="font-display text-xs font-bold text-[var(--c-siena)]">+€1,400</span>
+              </div>
+
+              <div class="bespoke-option p-4 text-[var(--c-espresso)]" data-group="fabric" data-name="مزيج الحرير والكتان الإيطالي (بيج رملي)" data-price="1500">
+                <span class="text-[10px] uppercase font-bold text-[var(--c-siena)] block mb-1">SOLBIATI</span>
+                <h4 class="font-display text-base font-bold mb-1">Silk & Linen</h4>
+                <p class="text-[11px] text-[var(--c-stone)] mb-2">مزيج صيفي ناعم للغاية ببريق حريري خافت.</p>
+                <span class="font-display text-xs font-bold text-[var(--c-siena)]">+€1,500</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Lapels & Buttons -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <div class="flex items-center gap-2 mb-3">
+                <span class="w-6 h-6 rounded-full bg-[var(--c-siena)] text-white text-xs font-bold flex items-center justify-center">3</span>
+                <h4 class="font-display text-xl font-bold">نوع الياقة (Lapel):</h4>
+              </div>
+              <div class="space-y-3">
+                <div class="bespoke-option selected p-3 text-[var(--c-espresso)]" data-group="lapel" data-name="ياقة مدببة عريضة كلاسيكية (Peak Lapel 10cm)" data-price="200">
+                  <div class="flex justify-between items-center">
+                    <span class="text-xs font-bold">ياقة مدببة عريضة (Peak Lapel 10cm)</span>
+                    <span class="text-xs text-[var(--c-siena)] font-bold">+€200</span>
+                  </div>
+                </div>
+                <div class="bespoke-option p-3 text-[var(--c-espresso)]" data-group="lapel" data-name="ياقة مشطوفة إيطالية (Notch Lapel 9cm)" data-price="150">
+                  <div class="flex justify-between items-center">
+                    <span class="text-xs font-bold">ياقة مشطوفة ناعمة (Notch Lapel 9cm)</span>
+                    <span class="text-xs text-[var(--c-siena)] font-bold">+€150</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex items-center gap-2 mb-3">
+                <span class="w-6 h-6 rounded-full bg-[var(--c-siena)] text-white text-xs font-bold flex items-center justify-center">4</span>
+                <h4 class="font-display text-xl font-bold">أزرار الحياكة (Buttons):</h4>
+              </div>
+              <div class="space-y-3">
+                <div class="bespoke-option selected p-3 text-[var(--c-espresso)]" data-group="buttons" data-name="أزرار قرن الجاموس الإيطالي الطبيعي المطفي" data-price="120">
+                  <div class="flex justify-between items-center">
+                    <span class="text-xs font-bold">قرن الجاموس الإيطالي (Real Horn)</span>
+                    <span class="text-xs text-[var(--c-siena)] font-bold">+€120</span>
+                  </div>
+                </div>
+                <div class="bespoke-option p-3 text-[var(--c-espresso)]" data-group="buttons" data-name="أزرار صدف اللؤلؤ الطبيعي الفاخر" data-price="180">
+                  <div class="flex justify-between items-center">
+                    <span class="text-xs font-bold">صدف اللؤلؤ الطبيعي (Mother of Pearl)</span>
+                    <span class="text-xs text-[var(--c-siena)] font-bold">+€180</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 5: Monogram Initials -->
+          <div class="p-6 bg-white/5 border border-white/10 rounded-sm">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div>
+                <h4 class="font-display text-xl font-bold mb-1">تطريز الأحرف الشخصية (Monogram Embroidery)</h4>
+                <p class="text-xs text-[var(--c-cream)]/70">تطريز يدوي بخيوط الحرير الإيطالي داخل بطانة الجاكيت اليسرى.</p>
+              </div>
+              <div class="flex items-center gap-3">
+                <input 
+                  type="text" 
+                  id="bespoke-monogram-input" 
+                  maxlength="3" 
+                  value="SB" 
+                  class="w-20 bg-white/10 border border-white/20 text-center font-display text-2xl tracking-widest text-[var(--c-siena)] uppercase p-2 focus:outline-none focus:border-[var(--c-siena)]"
+                />
+                <span class="text-xs text-[var(--c-cream)]/60">(أقصى حد: 3 أحرف)</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Sticky Bespoke Live Quote Card (4 Columns) -->
+        <div class="lg:col-span-4 sticky top-28 bg-white text-[var(--c-espresso)] p-6 sm:p-8 border border-[var(--c-border)] shadow-2xl">
+          <div class="flex items-center justify-between pb-4 border-b border-[var(--c-border)] mb-4">
+            <span class="text-xs uppercase font-bold tracking-widest text-[var(--c-siena)]">ملخص البدلة المخصصة</span>
+            <!-- Live Monogram Badge -->
+            <div id="bespoke-monogram-preview" class="w-8 h-8 rounded-full border border-[var(--c-siena)] flex items-center justify-center font-display font-bold text-xs text-[var(--c-siena)]">
+              SB
+            </div>
+          </div>
+
+          <h3 class="font-display text-2xl font-bold mb-3 leading-tight">
+            بدلة تفصيل خاص كاملة "Su Misura"
+          </h3>
+
+          <!-- Breakdown list -->
+          <div id="bespoke-summary-details" class="space-y-2 mb-6">
+            <!-- Injected by store.js -->
+          </div>
+
+          <div class="p-4 bg-[var(--c-travertine)] border border-[var(--c-border)] mb-6">
+            <div class="flex justify-between items-baseline mb-1">
+              <span class="text-xs text-[var(--c-stone)] font-medium">الإجمالي التقديري:</span>
+              <span id="bespoke-total-price" class="font-display text-3xl font-bold text-[var(--c-siena)]">€3,620</span>
+            </div>
+            <span class="text-[10px] text-[var(--c-stone)] block leading-tight">يشمل أخذ القياسات والتسليم بالحقيبة الجلدية المخصصة.</span>
+          </div>
+
+          <button onclick="orderBespokeSuit()" type="button" class="w-full bg-[var(--c-espresso)] text-[var(--c-travertine)] py-4 text-xs uppercase tracking-widest font-bold hover:bg-[var(--c-siena)] transition-colors flex items-center justify-center gap-2 shadow-lg">
+            <span class="material-symbols-outlined text-[18px]">brush</span>
+            <span>تثبيت الطلب وإضافته للحقيبة</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= Luxury Client Reviews & Press ================= -->
+  <section class="py-16 bg-white border-b border-[var(--c-border)]">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="text-center mb-12">
+        <span class="badge-luxury badge-siena mb-2">TESTIMONIANZE</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-[var(--c-espresso)]">
+          آراء عملاء دار بيليني المميزين
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="p-6 bg-[var(--c-travertine)] border border-[var(--c-border)] relative">
+          <span class="text-3xl font-display text-[var(--c-siena)] leading-none block mb-3">“</span>
+          <p class="text-xs leading-relaxed text-[var(--c-espresso)]/85 mb-4 font-light">
+            "جودة الكشمير في معطف لورو بيانا تفوق الوصف. الخياطة غير المرئية عند الأكتاف تعكس براعة استثنائية لم أجد لها مثيلاً حتى في أكبر دور الأزياء العالمية."
+          </p>
+          <div class="border-t border-[var(--c-border)] pt-3 flex items-center justify-between">
+            <span class="text-xs font-bold text-[var(--c-espresso)]">د. خالد المنصوري</span>
+            <span class="text-[10px] text-[var(--c-stone)]">دبي • عميل VIP</span>
+          </div>
+        </div>
+
+        <div class="p-6 bg-[var(--c-travertine)] border border-[var(--c-border)] relative">
+          <span class="text-3xl font-display text-[var(--c-siena)] leading-none block mb-3">“</span>
+          <p class="text-xs leading-relaxed text-[var(--c-espresso)]/85 mb-4 font-light">
+            "طلبت بدلة تفصيل خاص (Su Misura) لحفل زفافي. انسيابية الكتف وقماش الصوف 160s جعلني أشعر براحة تامة طوال اليوم مع إشادات الجميع بأناقة القصة."
+          </p>
+          <div class="border-t border-[var(--c-border)] pt-3 flex items-center justify-between">
+            <span class="text-xs font-bold text-[var(--c-espresso)]">المهندس كريم الشافعي</span>
+            <span class="text-[10px] text-[var(--c-stone)]">القاهرة • بدلة Su Misura</span>
+          </div>
+        </div>
+
+        <div class="p-6 bg-[var(--c-travertine)] border border-[var(--c-border)] relative">
+          <span class="text-3xl font-display text-[var(--c-siena)] leading-none block mb-3">“</span>
+          <p class="text-xs leading-relaxed text-[var(--c-espresso)]/85 mb-4 font-light">
+            "أحذية اللوفر التوسكانية خفيفة للغاية والجلد يزداد رونقاً وجمالاً مع الاستخدام المتكرر. تجربة الشراء والتغليف الفاخر تعبر عن اهتمام حقيقي بأدق التفاصيل."
+          </p>
+          <div class="border-t border-[var(--c-border)] pt-3 flex items-center justify-between">
+            <span class="text-xs font-bold text-[var(--c-espresso)]">فهد آل سعود</span>
+            <span class="text-[10px] text-[var(--c-stone)]">الرياض • مقتنيات أصلية</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= Footer ================= -->
+  <footer class="bg-[var(--c-espresso)] text-[var(--c-travertine)] pt-16 pb-12 border-t border-[var(--c-border-gold)]">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-white/10">
+        
+        <!-- Brand Bio (2 Cols) -->
+        <div class="lg:col-span-2">
+          <span class="font-logo text-3xl tracking-widest text-[var(--c-travertine)] block mb-2">
+            SARTORIA BELLINI
+          </span>
+          <p class="font-display italic text-xs text-[var(--c-siena)] mb-4">Milano • Dal 1968</p>
+          <p class="text-xs text-[var(--c-cream)]/70 leading-relaxed max-w-sm mb-6 font-light">
+            دار حياكة إيطالية كلاسيكية تأسست في حي بريرا بميلانو. نؤمن بأن الأناقة الحقيقية تكمن في الجوهر والقصة الخالية من التكلف، وتناغم الخيوط الطبيعية مع جسد المرتدي.
+          </p>
+          <div class="flex items-center gap-3 text-xs text-[var(--c-siena)]">
+            <span class="material-symbols-outlined text-[16px]">pin_drop</span>
+            <span>Via Montenapoleone 8, 20121 Milano MI, Italia</span>
+          </div>
+        </div>
+
+        <!-- Links: Collections -->
+        <div>
+          <h4 class="font-display text-base font-bold text-white mb-4">المجموعات الحصرية</h4>
+          <ul class="space-y-2 text-xs text-[var(--c-cream)]/75">
+            <li><a href="#collection" class="hover:text-[var(--c-siena)] transition-colors">بدل رجال الأعمال</a></li>
+            <li><a href="#collection" class="hover:text-[var(--c-siena)] transition-colors">معاطف الكشمير النقي</a></li>
+            <li><a href="#collection" class="hover:text-[var(--c-siena)] transition-colors">قمصان حرير بحيرة كومو</a></li>
+            <li><a href="#collection" class="hover:text-[var(--c-siena)] transition-colors">أحذية الجلد الفلورنسي</a></li>
+            <li><a href="#bespoke-studio" class="hover:text-[var(--c-siena)] transition-colors text-[var(--c-siena)]">خدمة التفصيل Su Misura</a></li>
+          </ul>
+        </div>
+
+        <!-- Links: Customer Care -->
+        <div>
+          <h4 class="font-display text-base font-bold text-white mb-4">خدمة العملاء VIP</h4>
+          <ul class="space-y-2 text-xs text-[var(--c-cream)]/75">
+            <li><a href="#" class="hover:text-[var(--c-siena)] transition-colors">دليل القياسات الإيطالية</a></li>
+            <li><a href="#" class="hover:text-[var(--c-siena)] transition-colors">سياسة الشحن والتأمين الدولي</a></li>
+            <li><a href="#" class="hover:text-[var(--c-siena)] transition-colors">شهادات توثيق أقمشة بييلا</a></li>
+            <li><a href="#" class="hover:text-[var(--c-siena)] transition-colors">العناية بأقمشة الكشمير والحرير</a></li>
+            <li><a href="#" class="hover:text-[var(--c-siena)] transition-colors">حجز استشارة خاصة مع الخياط</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter & Concierge -->
+        <div>
+          <h4 class="font-display text-base font-bold text-white mb-4">النشرة الراقية</h4>
+          <p class="text-xs text-[var(--c-cream)]/70 mb-3 leading-relaxed">
+            اشترك لتصلك تشكيلات الأقمشة النادرة قبل إطلاقها العام.
+          </p>
+          <div class="flex gap-2">
+            <input 
+              type="email" 
+              placeholder="بريدك الإلكتروني..." 
+              class="w-full bg-white/10 border border-white/20 px-3 py-2 text-xs text-white placeholder:text-[var(--c-stone)] focus:outline-none focus:border-[var(--c-siena)]"
+            />
+            <button type="button" onclick="showToast('شكراً لانضمامك إلى نادي أصدقاء دار بيليني الإيطالية!')" class="bg-[var(--c-siena)] text-white px-3 py-2 text-xs font-bold hover:bg-[var(--c-siena-hover)] transition-colors">
+              انضمام
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Credits -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-[var(--c-cream)]/50 gap-4">
+        <span>© 2025 Sartoria Bellini Milano S.p.A. جميع الحقوق محفوظة. حياكة إيطالية أصيلة.</span>
+        <div class="flex gap-4">
+          <a href="#" class="hover:underline">الشروط والأحكام</a>
+          <span>•</span>
+          <a href="#" class="hover:underline">الخصوصية وتأمين البيانات</a>
+          <span>•</span>
+          <a href="#" class="hover:underline">ميثاق الاستدامة والحرفيين</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================= Sliding Shopping Bag Drawer ================= -->
+  <div id="cart-backdrop" onclick="toggleCartDrawer(false)" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-50 transition-opacity"></div>
+  
+  <div id="cart-drawer" class="fixed top-0 left-0 h-full w-full max-w-md bg-[var(--c-travertine)] shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between border-r border-[var(--c-border)]">
+    
+    <!-- Drawer Header -->
+    <div class="p-6 border-b border-[var(--c-border)] flex items-center justify-between bg-white">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-[var(--c-siena)] text-[22px]">shopping_bag</span>
+        <h3 class="font-display text-2xl font-bold text-[var(--c-espresso)]">حقيبة المقتنيات</h3>
+      </div>
+      <button onclick="toggleCartDrawer(false)" type="button" class="w-8 h-8 rounded-full border border-[var(--c-border)] flex items-center justify-center hover:bg-[var(--c-siena)] hover:text-white transition-colors" title="إغلاق">
+        <span class="material-symbols-outlined text-[18px]">close</span>
+      </button>
+    </div>
+
+    <!-- Drawer Items List -->
+    <div id="cart-items-list" class="flex-1 overflow-y-auto p-6 space-y-4">
+      <!-- Injected by store.js -->
+    </div>
+
+    <!-- Drawer Footer -->
+    <div class="p-6 bg-white border-t border-[var(--c-border)] space-y-4">
+      <div class="flex justify-between items-baseline">
+        <span class="text-xs uppercase tracking-wider text-[var(--c-stone)] font-semibold">المجموع الفرعي:</span>
+        <span id="cart-subtotal-price" class="font-display text-3xl font-bold text-[var(--c-espresso)]">€0</span>
+      </div>
+      
+      <div class="p-3 bg-[var(--c-travertine)] border border-[var(--c-border)] text-[11px] text-[var(--c-stone)] flex items-center gap-2">
+        <span class="material-symbols-outlined text-[var(--c-siena)] text-[18px]">verified</span>
+        <span>شحن جوي مجاني ومؤمن بالكامل يشمل علبة التغليف الإيطالية الفاخرة.</span>
+      </div>
+
+      <button type="button" onclick="showToast('جاري تحويلك إلى بوابة الدفع الآمنة لحجز مقتنياتك...'); setTimeout(()=>toggleCartDrawer(false), 1200);" class="w-full bg-[var(--c-espresso)] text-[var(--c-travertine)] py-4 text-xs uppercase tracking-widest font-bold hover:bg-[var(--c-siena)] transition-colors flex items-center justify-center gap-2 shadow-lg">
+        <span class="material-symbols-outlined text-[18px]">lock</span>
+        <span>متابعة إتمام الطلب الفاخر</span>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- ================= Quick View Modal ================= -->
+  <div id="quick-view-modal" class="hidden fixed inset-0 bg-black/70 backdrop-blur-md z-50 items-center justify-center p-4">
+    <div class="bg-[var(--c-travertine)] w-full max-w-4xl p-6 sm:p-10 border border-[var(--c-border)] shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      
+      <!-- Close Button -->
+      <button onclick="closeQuickView()" type="button" class="absolute top-4 left-4 w-9 h-9 rounded-full bg-white border border-[var(--c-border)] flex items-center justify-center hover:bg-[var(--c-siena)] hover:text-white transition-colors z-20">
+        <span class="material-symbols-outlined text-[20px]">close</span>
+      </button>
+
+      <!-- Modal Content Body -->
+      <div id="quick-view-content">
+        <!-- Injected dynamically by store.js -->
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="store-toast-container"></div>
+
+  <!-- Store Logic Controller -->
+  <script src="js/store.js"></script>
+</body>
+</html>

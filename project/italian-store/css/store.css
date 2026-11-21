@@ -1,0 +1,242 @@
+/* ==========================================================================
+   SARTORIA BELLINI MILANO - LUXURY ITALIAN SARTORIAL STORE
+   Design System & Custom Typography Tokens
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Italiana&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Color Palette - 6 Intentional Hex Tokens */
+  --c-espresso: #161412;        /* Deep Sartorial Wool Base */
+  --c-travertine: #F8F5EE;      /* Italian Limestone / Travertine Canvas */
+  --c-cream: #EFEAE0;           /* Raw Silk / Linen Panels */
+  --c-siena: #B8833E;           /* Aged Terracotta & Hand-Stitch Gold */
+  --c-siena-hover: #9E6C2C;
+  --c-olive: #2E3830;           /* Tuscan Cypress & Heritage Green */
+  --c-stone: #8C867D;           /* Muted Florentine Marble Gray */
+  --c-border: rgba(22, 20, 18, 0.1);
+  --c-border-gold: rgba(184, 131, 62, 0.35);
+
+  /* Font Families */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-logo: 'Italiana', serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* Base Reset & Smooth Scroll */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: var(--c-travertine);
+  color: var(--c-espresso);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Editorial Typography */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-logo {
+  font-family: var(--font-logo);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Subtle Film Grain Texture Overlay */
+.bg-grain {
+  background-image: radial-gradient(rgba(22, 20, 18, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--c-travertine);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--c-stone);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--c-siena);
+}
+
+/* Golden Stitched Border Accent */
+.border-sartorial {
+  border: 1px solid var(--c-border);
+  position: relative;
+}
+
+.border-sartorial::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border: 1px dashed rgba(184, 131, 62, 0.25);
+  pointer-events: none;
+}
+
+/* Luxury Interactive Swatches */
+.fabric-swatch {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fabric-swatch:hover,
+.fabric-swatch.active {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 24px rgba(22, 20, 18, 0.12);
+  border-color: var(--c-siena);
+}
+
+/* Lookbook Interactive Hotspots */
+.hotspot-pin {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(248, 245, 238, 0.95);
+  border: 1px solid var(--c-siena);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 20;
+}
+
+.hotspot-pin::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: rgba(184, 131, 62, 0.35);
+  animation: pulse-ring 2s infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+.hotspot-pin:hover {
+  transform: scale(1.15);
+  background: var(--c-siena);
+  color: white;
+}
+
+/* Product Card Image Zoom */
+.product-card-img-wrapper {
+  overflow: hidden;
+  position: relative;
+  background-color: var(--c-cream);
+}
+
+.product-card-img {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+}
+
+.product-card:hover .product-card-img {
+  transform: scale(1.06);
+}
+
+/* Custom Notification Toast */
+#store-toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.store-toast {
+  pointer-events: auto;
+  min-width: 300px;
+  max-width: 420px;
+  background: var(--c-espresso);
+  color: var(--c-travertine);
+  padding: 16px 20px;
+  border-radius: 2px;
+  border-left: 3px solid var(--c-siena);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  animation: toastIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Bespoke Radio Card Selection */
+.bespoke-option {
+  border: 1px solid var(--c-border);
+  background: #ffffff;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.bespoke-option:hover {
+  border-color: var(--c-siena);
+  background: var(--c-travertine);
+}
+
+.bespoke-option.selected {
+  border-color: var(--c-siena);
+  background: #fff;
+  box-shadow: 0 0 0 1px var(--c-siena), 0 4px 16px rgba(184, 131, 62, 0.12);
+}
+
+/* Badges */
+.badge-luxury {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  border-radius: 2px;
+}
+
+.badge-siena {
+  background: rgba(184, 131, 62, 0.12);
+  color: var(--c-siena);
+  border: 1px solid rgba(184, 131, 62, 0.3);
+}
+
+.badge-olive {
+  background: rgba(46, 56, 48, 0.12);
+  color: var(--c-olive);
+  border: 1px solid rgba(46, 56, 48, 0.3);
+}
